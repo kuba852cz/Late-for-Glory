@@ -1,4 +1,8 @@
 package Commands;
 
-public class InspectCommand {
+public class InspectCommand implements Command {
+    @Override
+    public void execte() {
+
+    }
 }

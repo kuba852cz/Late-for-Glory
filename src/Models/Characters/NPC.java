@@ -1,4 +1,14 @@
 package Models.Characters;
 
-public class NPC {
+import Models.Item;
+
+public class NPC extends Character {
+
+    public String getDialogue(){
+        return null;
+    }
+
+    public void giveItem(Item item){
+    }
+
 }

@@ -1,4 +1,8 @@
 package Commands;
 
-public class GoCommand {
+public class GoCommand implements Command {
+    @Override
+    public void execte() {
+
+    }
 }

@@ -1,4 +1,8 @@
 package Commands;
 
-public class DropCommand {
+public class DropCommand implements Command {
+    @Override
+    public void execte() {
+
+    }
 }

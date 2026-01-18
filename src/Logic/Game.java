@@ -6,5 +6,6 @@ public class Game {
 
     }
 
-
+    public void createWorld(){
+    }
 }

@@ -1,4 +1,8 @@
 package Commands;
 
-public class InventoryCommand {
+public class InventoryCommand implements Command {
+    @Override
+    public void execte() {
+
+    }
 }

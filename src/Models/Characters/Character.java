@@ -1,4 +1,15 @@
 package Models.Characters;
 
-public class Character {
+import Models.Room;
+
+public abstract class Character {
+
+    public Room getCurrentRoom(){
+        return null;
+    }
+
+    public String getName(){
+        return null;
+    }
+
 }
