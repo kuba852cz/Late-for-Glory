@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Late-for-Glory.iml" filepath="$PROJECT_DIR$/Late-for-Glory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Late-for-Glory.iml" filepath="$PROJECT_DIR$/.idea/Late-for-Glory.iml" />
     </modules>
   </component>
 </project>

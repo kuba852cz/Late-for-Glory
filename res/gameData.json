@@ -1,0 +1,63 @@
+{
+  "Room": [
+    {
+      "id": "room_home",
+      "name": "Domov",
+      "description": "Zde bydlí hlavní postava a zde hráč začíná svou hru; lze získat Nepodepsanou smlouvu",
+      "neighbors": ["room_plaza"],
+      "lootTable": [""]
+    },
+    {
+      "id": "room_plaza",
+      "name": "Náměstí",
+      "description": "Slouží jako centrální křižovatka (rozcestí), která propojuje místa.",
+      "neighbors": ["room_store", "room_tournament", "room_gym"]
+    },
+    {
+      "id": "room_store",
+      "name": "Obchod",
+      "description": "Klasický obchod, kde hráč musí nakoupit; lze získat Protein a Fotku.",
+      "neighbors": [null],
+      "lootTable": [""]
+    },
+    {
+      "id": "room_tournament",
+      "name": "Turnaj",
+      "description": "Místo dění, kde čeká manažer až bude postava připravena",
+      "neighbors": ["room_managers_office", "room_ring"]
+    },
+    {
+      "id": "room_managers_office",
+      "name": "Kancelář Manažera",
+      "description": "Kancelař manažera turnaje; lze získat Podepsanou smlouvu.",
+      "neighbors": [null],
+      "lootTable": [""]
+    },
+    {
+      "id": "room_ring",
+      "name": "Ring",
+      "description": "Boxérský ring, kde čeká Ryan Garcia; zde se odehrava finalni cast hry.",
+      "neighbors": [null]
+    },
+    {
+      "id": "room_gym",
+      "name": "Tělocvična",
+      "description": "2. domov postavy, kde pravidelně cvičí; lze zde získat Fit postavu.",
+      "neighbors": ["room_lockers", "room_showers"]
+    },
+    {
+      "id": "room_lockers",
+      "name": "Šatna",
+      "description": "Šatny, kde se postava připravuje na trenink; lze získat Rukavice.",
+      "neighbors": [null],
+      "lootTable": [""]
+    },
+    {
+      "id": "room_showers",
+      "name": "Sprchy",
+      "description": "Místo, kam chodí postava po treninku; lze získat Chranič na zuby.",
+      "neighbors": [null],
+      "lootTable": [""]
+    }
+  ]
+}
