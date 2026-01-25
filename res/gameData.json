@@ -1,63 +1,136 @@
 {
-  "Room": [
+  "Characters": [
+    {
+      "id": "Player_mainCharacter",
+      "name": "Jon Oliveira",
+      "role": "PLAYER",
+      "homeLocationId": "room_home",
+      "notes": "Jon, za kterého hráč po celou dobu hry hraje."
+    },
+    {
+      "id": "NPC_trainer",
+      "name": "Marcus Cormier",
+      "role": "NPC",
+      "homeLocationId": "room_tournament",
+      "notes": "Trenér, kterému hráč musí předat požadované předměty."
+    },
+    {
+      "id": "NPC_opponent",
+      "name": "Ryan Garcia",
+      "role": "NPC",
+      "homeLocationId": "room_ring",
+      "notes": "Soupeř, proti kterému se hráč chystá."
+    },
+    {
+      "id": "NPC_unknown",
+      "name": "Mike Tyson",
+      "role": "NPC",
+      "homeLocationId": "room_store",
+      "notes": "Postava, která umožní hráči zvítězit."
+    },
+    {
+      "id": "NPC_manager",
+      "name": "Manazer",
+      "role": "NPC",
+      "homeLocationId": "room_managers_office",
+      "notes": "Postava, která čeká na hráče, aby s ním mohla interagovat."
+    }
+  ],
+  "Items": [
+    {
+      "id": "item_protein",
+      "name": "Protein",
+      "description": "Konzumovatelný předmět, který hráče posílí."
+    },
+    {
+      "id": "item_gloves",
+      "name": "Rukavice",
+      "description": "Potřebná ochrana rukou proti soupeři."
+    },
+    {
+      "id": "item_guard",
+      "name": "Chranic na zuby",
+      "description": "Ochrana zubů při souboji proti soupeři."
+    },
+    {
+      "id": "item_contract",
+      "name": "Smlouva",
+      "description": "Předmět, který se mění v průběhu hry díky interakci s postavami."
+    },
+    {
+      "id": "item_photo",
+      "name": "Fotka s Tysonem",
+      "description": "Předmět, na kterém je napsaná rada od Mike Tysona."
+    },
+    {
+      "id": "item_machines",
+      "name": "Posilovaci stroje",
+      "description": "Nepřenašitelný předmět, který umožní hráči získat vhodnou kondici pro zápas."
+    }
+  ],
+  "Rooms": [
     {
       "id": "room_home",
       "name": "Domov",
-      "description": "Zde bydlí hlavní postava a zde hráč začíná svou hru; lze získat Nepodepsanou smlouvu",
+      "description": "Zde bydlí hlavní postava a zde hráč začíná svou hru; lze získat Nepodepsanou smlouvu.",
       "neighbors": ["room_plaza"],
-      "lootTable": [""]
+      "items": ["item_contract"]
     },
     {
       "id": "room_plaza",
-      "name": "Náměstí",
+      "name": "Namesti",
       "description": "Slouží jako centrální křižovatka (rozcestí), která propojuje místa.",
-      "neighbors": ["room_store", "room_tournament", "room_gym"]
+      "neighbors": ["room_home", "room_store", "room_tournament", "room_gym"],
+      "items": []
     },
     {
       "id": "room_store",
       "name": "Obchod",
       "description": "Klasický obchod, kde hráč musí nakoupit; lze získat Protein a Fotku.",
-      "neighbors": [null],
-      "lootTable": [""]
+      "neighbors": ["room_plaza"],
+      "items": ["item_protein"]
     },
     {
       "id": "room_tournament",
       "name": "Turnaj",
-      "description": "Místo dění, kde čeká manažer až bude postava připravena",
-      "neighbors": ["room_managers_office", "room_ring"]
+      "description": "Místo dění, kde čeká manažer až bude postava připravena.",
+      "neighbors": ["room_plaza", "room_managers_office", "room_ring"],
+      "items": []
     },
     {
       "id": "room_managers_office",
-      "name": "Kancelář Manažera",
-      "description": "Kancelař manažera turnaje; lze získat Podepsanou smlouvu.",
-      "neighbors": [null],
-      "lootTable": [""]
+      "name": "Kancelar manazera",
+      "description": "Kancelář manažera turnaje; lze získat Podepsanou smlouvu.",
+      "neighbors": ["room_tournament"],
+      "items": []
     },
     {
       "id": "room_ring",
       "name": "Ring",
-      "description": "Boxérský ring, kde čeká Ryan Garcia; zde se odehrava finalni cast hry.",
-      "neighbors": [null]
+      "description": "Boxerský ring, kde čeká Ryan Garcia; zde se odehrává finální část hry.",
+      "neighbors": ["room_tournament"],
+      "items": []
     },
     {
       "id": "room_gym",
-      "name": "Tělocvična",
+      "name": "Telocvicna",
       "description": "2. domov postavy, kde pravidelně cvičí; lze zde získat Fit postavu.",
-      "neighbors": ["room_lockers", "room_showers"]
+      "neighbors": ["room_plaza", "room_lockers", "room_showers"],
+      "items": ["item_machines"]
     },
     {
       "id": "room_lockers",
-      "name": "Šatna",
-      "description": "Šatny, kde se postava připravuje na trenink; lze získat Rukavice.",
-      "neighbors": [null],
-      "lootTable": [""]
+      "name": "Satna",
+      "description": "Šatny, kde se postava připravuje na trénink; lze získat Rukavice.",
+      "neighbors": ["room_gym"],
+      "items": ["item_gloves"]
     },
     {
       "id": "room_showers",
       "name": "Sprchy",
-      "description": "Místo, kam chodí postava po treninku; lze získat Chranič na zuby.",
-      "neighbors": [null],
-      "lootTable": [""]
+      "description": "Místo, kam chodí postava po tréninku; lze získat Chránič na zuby.",
+      "neighbors": ["room_gym"],
+      "items": ["item_guard"]
     }
   ]
 }
