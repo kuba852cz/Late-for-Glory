@@ -1,8 +1,18 @@
 package Commands;
 
-public class HelpCommand implements Command {
-    @Override
-    public void execte() {
+import Logic.Game;
 
+public class HelpCommand implements Command {
+    public HelpCommand(Game game) {
+    }
+
+    @Override
+    public String execute(String cilovyNazev) {
+        return "";
+    }
+
+    @Override
+    public boolean exit() {
+        return false;
     }
 }

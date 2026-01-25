@@ -1,5 +1,5 @@
 {
-  "Characters": [
+  "characters": [
     {
       "id": "Player_mainCharacter",
       "name": "Jon Oliveira",
@@ -36,7 +36,7 @@
       "notes": "Postava, která čeká na hráče, aby s ním mohla interagovat."
     }
   ],
-  "Items": [
+  "items": [
     {
       "id": "item_protein",
       "name": "Protein",
@@ -68,7 +68,7 @@
       "description": "Nepřenašitelný předmět, který umožní hráči získat vhodnou kondici pro zápas."
     }
   ],
-  "Rooms": [
+  "rooms": [
     {
       "id": "room_home",
       "name": "Domov",

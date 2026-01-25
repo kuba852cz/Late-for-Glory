@@ -2,7 +2,8 @@ package Commands;
 
 public interface Command {
 
-    public void execte();
+    public String execute(String cilovyNazev);
+    public boolean exit();
 
 
 }

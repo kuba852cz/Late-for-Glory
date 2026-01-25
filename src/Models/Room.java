@@ -8,7 +8,11 @@ public class Room {
     private String name;
     private String description;
     private ArrayList<String> neighbors;
-    private ArrayList<String> lootTable;
+    private ArrayList<String> items;
+
+    public ArrayList<String> getNeighbors() {
+        return neighbors;
+    }
 
     public Item addItem(){
         return null;
@@ -19,7 +23,7 @@ public class Room {
     }
 
     public String getDescription(){
-        return null;
+        return description;
     }
 
     public String getId() {
@@ -37,7 +41,7 @@ public class Room {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", neighbors=" + neighbors +
-                ", lootTable=" + lootTable +
+                ", items=" + items +
                 '}';
     }
 

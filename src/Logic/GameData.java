@@ -1,5 +1,6 @@
 package Logic;
 
+import Models.Characters.Character;
 import Models.Item;
 import Models.Room;
 import com.google.gson.Gson;
@@ -18,9 +19,16 @@ import java.util.ArrayList;
 public class GameData {
 
     public ArrayList<Item> items;
-    public ArrayList<Character> characters;
+    public ArrayList<CharacterDTO> characters;
     public ArrayList<Room> rooms;
 
+    //napomocna trida, diky ktere muzem inicializovat zdedene postavy
+    public static class CharacterDTO {
+        public String id;
+        public String name;
+        public String role;
+        public String homeLocationId;
+    }
     /**
      * Loads game data from a JSON file.
      * @param resourcePath path to the resource file
@@ -34,7 +42,7 @@ public class GameData {
                 throw new IllegalStateException("Nenalezen resource: " + resourcePath +
                         " (zkontrolujte, že soubor je v src/main/resources).");
             }
-            
+
             return gson.fromJson(
                     new InputStreamReader(is, StandardCharsets.UTF_8),
                     GameData.class

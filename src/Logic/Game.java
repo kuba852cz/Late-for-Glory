@@ -1,11 +1,79 @@
 package Logic;
 
+import Commands.*;
+import Models.Characters.Player;
+import Models.Room;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class Game {
 
-    public void play(){
+    private boolean gameOver = false;
+    private GameData world;
+    private Player player;
+    private HashMap<String, Command> commands;
 
+    public void inicialization(){
+        commands = new HashMap<>();
+
+        world = GameData.loadGameDataFromResources("/gamedata.json");
+        Room startRoom = world.findRoom("room_home");
+        player = new Player("Jon", startRoom);
+
+        commands.put("poloz", new DropCommand(player));
+        commands.put("jdi", new GoCommand(player, world));
+        commands.put("pomoc", new HelpCommand(this));
+        commands.put("prozkoumat", new InspectCommand(player));
+        commands.put("inventar", new InventoryCommand(player));
+        commands.put("ukoncit", new QuitCommand(this));
+        commands.put("vezmi", new TakeCommand(player));
+        commands.put("mluv", new TalkCommand(player));
+        commands.put("pouzij", new UseCommand(player));
     }
 
-    public void createWorld(){
+    //prozatimni vygenerovana smycka (nasledne si ji udelam sam)
+    public void start() {
+        inicialization();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("--- JSI V MÍSTNOSTI: " + player.getCurrentRoom().getName() + " ---");
+        System.out.println(player.getCurrentRoom().getDescription());
+
+        while (!gameOver) {
+            System.out.print("\n> ");
+            // .trim() odstraní mezery na začátku a konci, aby to neblblo
+            String input = scanner.nextLine().trim();
+
+            // Pojistka, kdyby hráč jen odentroval prázdný řádek
+            if (input.isEmpty()) {
+                continue;
+            }
+
+            String[] parts = input.split(" ");
+            String commandName = parts[0];
+
+            if (commands.containsKey(commandName)) {
+
+                // PŘÍPRAVA PARAMETRU (String)
+                String argument = "";
+
+                // Pokud hráč napsal víc než jedno slovo (např. "jdi sklep"),
+                // vezmeme to druhé slovo jako argument.
+                if (parts.length > 1) {
+                    argument = parts[1];
+                }
+
+                // Teď voláme execute a posíláme jen ten jeden String (nebo prázdný, pokud nic nenapsal)
+                String result = commands.get(commandName).execute(argument);
+                System.out.println(result);
+
+            } else {
+                System.out.println("Neznámý příkaz. Zkus: jdi <mistnost>");
+            }
+        }
+    }
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
     }
 }
