@@ -5,6 +5,12 @@ import Models.Room;
 
 public class Player extends Character {
 
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    private Room room;
+
     public void setCurrentRoom(Room currentRoom){}
 
     public boolean pickUpItem(Item item){
