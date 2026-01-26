@@ -8,6 +8,7 @@ public class InventoryCommand implements Command {
 
     @Override
     public String execute(String cilovyNazev) {
+
         return "";
     }
 

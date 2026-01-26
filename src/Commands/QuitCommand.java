@@ -8,11 +8,13 @@ public class QuitCommand implements Command {
 
     @Override
     public String execute(String cilovyNazev) {
-        return "";
+        exit();
+        return "Hra ukoncena.";
     }
 
     @Override
     public boolean exit() {
-        return false;
+        System.exit(0);
+        return true;
     }
 }

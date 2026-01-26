@@ -15,21 +15,21 @@ public class GoCommand implements Command {
     }
 
     @Override
-    public String execute(String cilovyNazev) {
-        if (cilovyNazev.isEmpty()) {
+    public String execute(String targetingName) {
+        if (targetingName.isEmpty()) {
             return "Kam chceš jít? (Napiš: jdi <mistnost>)";
         }
 
-        for (String idSouseda : player.getCurrentRoom().getNeighbors()) {
+        for (String idNeighbor : player.getCurrentRoom().getNeighbors()) {
 
-            Room sousedniMistnost = gameData.findRoom(idSouseda);
+            Room neighborRoom = gameData.findRoom(idNeighbor);
 
-            if (sousedniMistnost.getName().equalsIgnoreCase(cilovyNazev)) {
-                player.setCurrentRoom(sousedniMistnost);
-                return "Přesunul ses do: " + sousedniMistnost.getName() + "\n" +
-                        sousedniMistnost.getDescription() + "\n" + sousedniMistnost.getNeighbors();
+            if (neighborRoom.getName().equalsIgnoreCase(targetingName)) {
+                player.setCurrentRoom(neighborRoom);
+                return "Přesunul ses do: " + neighborRoom.getName() + "\n" +
+                        neighborRoom.getDescription() + "\n" + neighborRoom.getNeighbors();
 
-            } else if (player.getCurrentRoom().getName().equalsIgnoreCase(cilovyNazev)) {
+            } else if (player.getCurrentRoom().getName().equalsIgnoreCase(targetingName)) {
                 return "V této místnosti právě ted jsi.";
             }
         }

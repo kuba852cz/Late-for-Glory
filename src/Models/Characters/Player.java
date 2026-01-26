@@ -3,18 +3,16 @@ package Models.Characters;
 import Models.Item;
 import Models.Room;
 
+import java.util.ArrayList;
+
 public class Player extends Character {
 
+    private ArrayList<Item> inventory;
 
-    public Player(String name, Room startingRoom) {
-        super(name,  "PLAYER", startingRoom);
+    public Player(String id, String name, String role, Room startingRoom, String notes) {
+        super(id, name, role, startingRoom, notes);
+        this.inventory = new ArrayList<>();
     }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    private Room room;
 
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
@@ -32,6 +30,11 @@ public class Player extends Character {
         return false;
     }
 
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
 
-
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
 }

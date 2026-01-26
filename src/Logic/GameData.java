@@ -28,6 +28,10 @@ public class GameData {
         public String name;
         public String role;
         public String homeLocationId;
+
+        public String getId() {
+            return id;
+        }
     }
     /**
      * Loads game data from a JSON file.
@@ -66,6 +70,24 @@ public class GameData {
             }
         }
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
+    }
+
+    public Item findItem(String id) {
+        for (Item i : items) {
+            if (i.getId().equals(id)){
+                return i;
+            }
+        }
+        throw new IllegalArgumentException("Neexistuje predmet s id: " + id);
+    }
+
+    public CharacterDTO findCharacter(String id) {
+        for (CharacterDTO c : characters) {
+            if (c.getId().equals(id)){
+                return c;
+            }
+        }
+        throw new IllegalArgumentException("Neexistuje postava s id: " + id);
     }
 
 

@@ -14,11 +14,11 @@ public class Room {
         return neighbors;
     }
 
-    public Item addItem(){
+    public String addItem(String itemId){
         return null;
     }
 
-    public Item removeItem(){
+    public String removeItem(String itemId){
         return null;
     }
 

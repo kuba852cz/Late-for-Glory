@@ -7,7 +7,8 @@ public class TalkCommand implements  Command {
     }
 
     @Override
-    public String execute(String cilovyNazev) {
+    public String execute(String targetingName) {
+
         return "";
     }
 

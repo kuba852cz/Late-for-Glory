@@ -18,8 +18,6 @@ public class Game {
         commands = new HashMap<>();
 
         world = GameData.loadGameDataFromResources("/gamedata.json");
-        Room startRoom = world.findRoom("room_home");
-        player = new Player("Jon", startRoom);
 
         commands.put("poloz", new DropCommand(player));
         commands.put("jdi", new GoCommand(player, world));
