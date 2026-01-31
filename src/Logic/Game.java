@@ -18,14 +18,16 @@ public class Game {
         commands = new HashMap<>();
 
         world = GameData.loadGameDataFromResources("/gamedata.json");
+        this.player = world.player;
+        this.player.setCurrentRoom(world.findRoom(player.getHomeLocationId()));
 
         commands.put("poloz", new DropCommand(player));
         commands.put("jdi", new GoCommand(player, world));
-        commands.put("pomoc", new HelpCommand(this));
+        commands.put("pomoc", new HelpCommand(player));
         commands.put("prozkoumat", new InspectCommand(player));
         commands.put("inventar", new InventoryCommand(player));
         commands.put("ukoncit", new QuitCommand(this));
-        commands.put("vezmi", new TakeCommand(player));
+        commands.put("vezmi", new TakeCommand(player, world));
         commands.put("mluv", new TalkCommand(player));
         commands.put("pouzij", new UseCommand(player));
     }
@@ -37,6 +39,7 @@ public class Game {
 
         System.out.println("--- JSI V MÍSTNOSTI: " + player.getCurrentRoom().getName() + " ---");
         System.out.println(player.getCurrentRoom().getDescription());
+        System.out.println(player.getCurrentRoom().getNeighbors());
 
         while (!gameOver) {
             System.out.print("\n> ");

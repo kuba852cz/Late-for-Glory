@@ -1,29 +1,30 @@
 package Models.Characters;
 
+import Logic.GameData;
 import Models.Item;
 import Models.Room;
 
 import java.util.ArrayList;
 
-public class Player extends Character {
+public class Player {
 
     private ArrayList<Item> inventory;
+    private String id;
+    private String name;
+    private Room currentRoom;
+    private String homeLocationId;
 
-    public Player(String id, String name, String role, Room startingRoom, String notes) {
-        super(id, name, role, startingRoom, notes);
+    public Player() {
         this.inventory = new ArrayList<>();
     }
 
-    public void setCurrentRoom(Room currentRoom){
-        this.currentRoom = currentRoom;
-    }
-
     public boolean pickUpItem(Item item){
-        return false;
+        inventory.add(item);
+        return true;
     }
 
     public void dropItem(Item item){
-
+        inventory.remove(item);
     }
 
     public boolean hasItem(Item item){
@@ -36,5 +37,37 @@ public class Player extends Character {
 
     public void setInventory(ArrayList<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHomeLocationId() {
+        return homeLocationId;
+    }
+
+    public void setHomeLocationId(String homeLocationId) {
+        this.homeLocationId = homeLocationId;
     }
 }

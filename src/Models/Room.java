@@ -14,12 +14,12 @@ public class Room {
         return neighbors;
     }
 
-    public String addItem(String itemId){
-        return null;
+    public void addItem(String itemId){
+        this.items.add(itemId);
     }
 
-    public String removeItem(String itemId){
-        return null;
+    public void removeItem(String itemId){
+        this.items.remove(itemId);
     }
 
     public String getDescription(){
@@ -32,6 +32,10 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+
+    public ArrayList<String> getItems() {
+        return items;
     }
 
     @Override

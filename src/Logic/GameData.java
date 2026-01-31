@@ -1,10 +1,10 @@
 package Logic;
 
-import Models.Characters.Character;
+import Models.Characters.NPC;
+import Models.Characters.Player;
 import Models.Item;
 import Models.Room;
 import com.google.gson.Gson;
-import com.sun.tools.javac.Main;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,20 +19,10 @@ import java.util.ArrayList;
 public class GameData {
 
     public ArrayList<Item> items;
-    public ArrayList<CharacterDTO> characters;
+    public ArrayList<NPC> npcs;
     public ArrayList<Room> rooms;
+    public Player player;
 
-    //napomocna trida, diky ktere muzem inicializovat zdedene postavy
-    public static class CharacterDTO {
-        public String id;
-        public String name;
-        public String role;
-        public String homeLocationId;
-
-        public String getId() {
-            return id;
-        }
-    }
     /**
      * Loads game data from a JSON file.
      * @param resourcePath path to the resource file
@@ -46,6 +36,7 @@ public class GameData {
                 throw new IllegalStateException("Nenalezen resource: " + resourcePath +
                         " (zkontrolujte, že soubor je v src/main/resources).");
             }
+
 
             return gson.fromJson(
                     new InputStreamReader(is, StandardCharsets.UTF_8),
@@ -81,13 +72,13 @@ public class GameData {
         throw new IllegalArgumentException("Neexistuje predmet s id: " + id);
     }
 
-    public CharacterDTO findCharacter(String id) {
-        for (CharacterDTO c : characters) {
-            if (c.getId().equals(id)){
-                return c;
+    public NPC findNPC(String id) {
+        for (NPC npc : npcs) {
+            if (npc.getId().equals(id)){
+                return npc;
             }
         }
-        throw new IllegalArgumentException("Neexistuje postava s id: " + id);
+        throw new IllegalArgumentException("Neexistuje NPC s id: " + id);
     }
 
 

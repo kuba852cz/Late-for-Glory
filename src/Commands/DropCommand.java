@@ -1,14 +1,11 @@
 package Commands;
 
-import Logic.GameData;
 import Models.Characters.Player;
 import Models.Item;
-import jdk.jshell.spi.SPIResolutionException;
 
 public class DropCommand implements Command {
 
     private Player player;
-    private GameData gameData;
 
     public DropCommand(Player player) {
         this.player = player;
@@ -21,7 +18,6 @@ public class DropCommand implements Command {
         }
 
         for (Item removingItem : player.getInventory()) {
-
             if (removingItem.getName().equalsIgnoreCase(targetingName)){
                 player.dropItem(removingItem);
                 player.getCurrentRoom().addItem(removingItem.getId());

@@ -1,39 +1,44 @@
 {
-  "characters": [
+  "player":
     {
       "id": "Player_mainCharacter",
       "name": "Jon Oliveira",
-      "role": "PLAYER",
       "homeLocationId": "room_home",
-      "notes": "Jon, za kterého hráč po celou dobu hry hraje."
-    },
+      "inventory": []
+    }
+  ,
+    "npc": [
     {
       "id": "NPC_trainer",
       "name": "Marcus Cormier",
       "role": "NPC",
       "homeLocationId": "room_tournament",
-      "notes": "Trenér, kterému hráč musí předat požadované předměty."
+      "notes": "Trenér, kterému hráč musí předat požadované předměty.",
+      "starterDialogue": "To je dost že ses ukázal Jone! Kde ses flákal? To je jedno. Za hodinu začíná zápas. Kde máš věci?"
     },
     {
       "id": "NPC_opponent",
       "name": "Ryan Garcia",
       "role": "NPC",
       "homeLocationId": "room_ring",
-      "notes": "Soupeř, proti kterému se hráč chystá."
+      "notes": "Soupeř, proti kterému se hráč chystá.",
+      "starterDialogue": "Neříkaj mi Kingry pro nic za nic. Ty mě rozhodně nesesadíš z trůnu!"
     },
     {
       "id": "NPC_unknown",
       "name": "Mike Tyson",
       "role": "NPC",
       "homeLocationId": "room_store",
-      "notes": "Postava, která umožní hráči zvítězit."
+      "notes": "Postava, která umožní hráči zvítězit.",
+      "starterDialogue": "Zdravim. Jsme Mike Tyson. Můžu ti s něčim pomoct?"
     },
     {
       "id": "NPC_manager",
       "name": "Manazer",
       "role": "NPC",
       "homeLocationId": "room_managers_office",
-      "notes": "Postava, která čeká na hráče, aby s ním mohla interagovat."
+      "notes": "Postava, která čeká na hráče, aby s ním mohla interagovat.",
+      "starterDialogue": "Vítej Jone. S čímm ti mohu pomoci?"
     }
   ],
   "items": [

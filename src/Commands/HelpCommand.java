@@ -7,7 +7,8 @@ public class HelpCommand implements Command {
 
     private Player player;
 
-    public HelpCommand(Game game) {
+    public HelpCommand(Player player) {
+        this.player = player;
     }
 
     @Override
@@ -32,11 +33,18 @@ public class HelpCommand implements Command {
                                      
                                      
                 """;
-        System.out.println(" AKTUÁLNĚ SE NACHÁZÍŠ V: " + "[" + player.getCurrentRoom() + "]");
-        System.out.println(tenkaCara);
-        System.out.println(dvojiCara);
+        String aktualniPoloha = (" AKTUÁLNĚ SE NACHÁZÍŠ V: " + "[" + player.getCurrentRoom().getName() + "]");
 
-        return mapa;
+        String prikazy = "Dostupné příkazy:\n" +
+                "- jdi <místnost>\n" +
+                "- vezmi <předmět>\n" +
+                "- poloz <předmět>\n" +
+                "- inventar\n" +
+                "- prozkoumat <předmět>\n" +
+                "- mluv <npc>\n" +
+                "- ukoncit";
+
+        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + prikazy;
     }
 
     @Override

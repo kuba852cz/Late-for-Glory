@@ -1,14 +1,18 @@
 package Commands;
 
+import Logic.Game;
+import Logic.GameData;
 import Models.Characters.Player;
 import Models.Item;
 
 public class TakeCommand implements Command {
 
     private Player player;
+    private GameData gameData;
 
-    public TakeCommand(Player player) {
+    public TakeCommand(Player player, GameData gameData) {
         this.player = player;
+        this.gameData = gameData;
     }
 
     @Override
@@ -17,11 +21,11 @@ public class TakeCommand implements Command {
             return "Co chceš sebrat? (Napiš: vezmi <předmět>)";
         }
 
-        for (Item addingItem : player.getInventory()) {
-
-            if (addingItem.getName().equalsIgnoreCase(targetingName)){
-                player.pickUpItem(addingItem);
-                player.getCurrentRoom().removeItem(addingItem.getId());
+        for (String addingItemID : player.getCurrentRoom().getItems()) {
+            Item item = gameData.findItem(addingItemID);
+            if (item.getName().equals(targetingName)) {
+                player.pickUpItem(item);
+                player.getCurrentRoom().removeItem(item.getId());
                 return "Predmet " + targetingName + " byl sebran";
             }
         }
