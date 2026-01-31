@@ -1,6 +1,7 @@
 package Commands;
 
 import Logic.GameData;
+import Models.Characters.NPC;
 import Models.Characters.Player;
 import Models.Room;
 
@@ -16,6 +17,7 @@ public class GoCommand implements Command {
 
     @Override
     public String execute(String targetingName) {
+
         if (targetingName.isEmpty()) {
             return "Kam chceš jít? (Napiš: jdi <mistnost>)";
         }
@@ -31,6 +33,11 @@ public class GoCommand implements Command {
 
             } else if (player.getCurrentRoom().getName().equalsIgnoreCase(targetingName)) {
                 return "V této místnosti právě ted jsi.";
+            } else if (neighborRoom.getId().equalsIgnoreCase("room_ring")) {
+                NPC trener = gameData.findNPC("NPC_trainer");
+                if (!trener.isQuestFinished()) {
+                    return "Trenér ti zastoupil cestu: \"Nikam nejdeš, mladej! Nejdřív mi ukaž, že na to máš!\"";
+                }
             }
         }
 

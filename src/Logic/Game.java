@@ -20,6 +20,7 @@ public class Game {
         world = GameData.loadGameDataFromResources("/gamedata.json");
         this.player = world.player;
         this.player.setCurrentRoom(world.findRoom(player.getHomeLocationId()));
+        
 
         commands.put("poloz", new DropCommand(player));
         commands.put("jdi", new GoCommand(player, world));
@@ -36,6 +37,8 @@ public class Game {
     public void start() {
         inicialization();
         Scanner scanner = new Scanner(System.in);
+        Ending ending = new Ending();
+        ending.getPrologue()
 
         System.out.println("--- JSI V MÍSTNOSTI: " + player.getCurrentRoom().getName() + " ---");
         System.out.println(player.getCurrentRoom().getDescription());

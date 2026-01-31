@@ -151,5 +151,11 @@
       "items": ["item_guard"],
       "npc": []
     }
-  ]
+  ],
+  "endings": {
+    "prologue": "",
+    "preEnding": "",
+    "goodEnding": "",
+    "badEnding": ""
+  }
 }

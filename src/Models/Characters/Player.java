@@ -13,6 +13,8 @@ public class Player {
     private String name;
     private Room currentRoom;
     private String homeLocationId;
+    private boolean isFit = false;
+    private boolean knowsWinningMove = false;
 
     public Player() {
         this.inventory = new ArrayList<>();
@@ -69,5 +71,21 @@ public class Player {
 
     public void setHomeLocationId(String homeLocationId) {
         this.homeLocationId = homeLocationId;
+    }
+
+    public boolean isFit() {
+        return isFit;
+    }
+
+    public void setFit(boolean fit) {
+        isFit = fit;
+    }
+
+    public boolean isKnowsWinningMove() {
+        return knowsWinningMove;
+    }
+
+    public void setKnowsWinningMove(boolean knowsWinningMove) {
+        this.knowsWinningMove = knowsWinningMove;
     }
 }
