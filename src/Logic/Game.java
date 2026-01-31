@@ -28,7 +28,7 @@ public class Game {
         commands.put("prozkoumat", new InspectCommand(player, world));
         commands.put("inventar", new InventoryCommand(player));
         commands.put("ukoncit", new QuitCommand(this));
-        commands.put("vezmi", new TakeCommand(player, world));
+        commands.put("seber", new TakeCommand(player, world));
         commands.put("mluv", new TalkCommand(player, world));
         commands.put("pouzij", new UseCommand(player, world));
     }
