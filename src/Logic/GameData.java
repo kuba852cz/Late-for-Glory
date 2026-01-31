@@ -22,7 +22,6 @@ public class GameData {
     public ArrayList<NPC> npcs;
     public ArrayList<Room> rooms;
     public Player player;
-    public Ending endings;
 
     /**
      * Loads game data from a JSON file.

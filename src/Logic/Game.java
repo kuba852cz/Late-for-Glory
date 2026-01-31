@@ -1,7 +1,9 @@
 package Logic;
 
 import Commands.*;
+import Models.Characters.NPC;
 import Models.Characters.Player;
+import Models.Item;
 import Models.Room;
 
 import java.util.HashMap;
@@ -20,7 +22,6 @@ public class Game {
         world = GameData.loadGameDataFromResources("/gamedata.json");
         this.player = world.player;
         this.player.setCurrentRoom(world.findRoom(player.getHomeLocationId()));
-        
 
         commands.put("poloz", new DropCommand(player));
         commands.put("jdi", new GoCommand(player, world));
@@ -28,55 +29,74 @@ public class Game {
         commands.put("prozkoumat", new InspectCommand(player, world));
         commands.put("inventar", new InventoryCommand(player));
         commands.put("ukoncit", new QuitCommand(this));
-        commands.put("vezmi", new TakeCommand(player, world));
+        commands.put("seber", new TakeCommand(player, world));
         commands.put("mluv", new TalkCommand(player, world));
         commands.put("pouzij", new UseCommand(player, world));
     }
 
-    //prozatimni vygenerovana smycka (nasledne si ji udelam sam)
-    public void start() {
+    public String homeInfo(){
+        String result ="";
+
+        result = "Jsi v mistnosti: " + player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription() + "\nPredmety v teto mistnosti: ";
+        for (String itemsID : player.getCurrentRoom().getItems()){
+            Item item = world.findItem(itemsID);
+            result += item.getName() + ", ";
+        }
+        result = result.substring(0, result.length()-2);
+        result += "\nPostavy v teto mistnosti: ";
+        if (player.getCurrentRoom().getNpcs().isEmpty()){
+            result += "Zadne";
+        }else{
+            for (String npcID : player.getCurrentRoom().getNpcs()){
+                NPC npc = world.findNPC(npcID);
+                result += npc.getName() + ", ";
+            }
+            result = result.substring(0, result.length()-2);
+        }
+        result += "\nSousedni mistnosti: ";
+        for (String neighborsID : player.getCurrentRoom().getNeighbors()){
+            Room r = world.findRoom(neighborsID);
+            result += r.getName() + ", ";
+        }
+        result = result.substring(0, result.length()-2);
+
+        return result;
+    }
+
+    public void start(){
         inicialization();
         Scanner scanner = new Scanner(System.in);
         Ending ending = new Ending();
-        ending.getPrologue();
+        System.out.println(ending.getPrologue());
+        System.out.println(homeInfo());
 
-        System.out.println("--- JSI V MÍSTNOSTI: " + player.getCurrentRoom().getName() + " ---");
-        System.out.println(player.getCurrentRoom().getDescription());
-        System.out.println(player.getCurrentRoom().getNeighbors());
+        while(!gameOver){
+            System.out.print("\n>>>");
+            String input = scanner.nextLine();
 
-        while (!gameOver) {
-            System.out.print("\n>>> ");
-            // .trim() odstraní mezery na začátku a konci, aby to neblblo
-            String input = scanner.nextLine().trim();
-
-            // Pojistka, kdyby hráč jen odentroval prázdný řádek
-            if (input.isEmpty()) {
-                continue;
+            if (input.isEmpty()){
+                System.out.println("nic si nenapsal.");
             }
 
             String[] parts = input.split(" ");
             String commandName = parts[0];
-
-            if (commands.containsKey(commandName)) {
-
-                // PŘÍPRAVA PARAMETRU (String)
-                String argument = "";
-
-                // Pokud hráč napsal víc než jedno slovo (např. "jdi sklep"),
-                // vezmeme to druhé slovo jako argument.
-                if (parts.length > 1) {
-                    argument = parts[1];
-                }
-
-                // Teď voláme execute a posíláme jen ten jeden String (nebo prázdný, pokud nic nenapsal)
-                String result = commands.get(commandName).execute(argument);
-                System.out.println(result);
-
-            } else {
-                System.out.println("Neznámý příkaz. Zkus: jdi <mistnost>");
+            String targetingName = "";
+            if (parts.length>0){
+                targetingName = parts[1];
             }
+
+            if(commands.containsKey(commandName)){
+                String result = commands.get(commandName).execute(targetingName);
+                System.out.println(result);
+            } else{
+                System.out.println("Neznamy prikaz.");
+            }
+
         }
+        System.out.println("\nDekuji za zahrani me hry <3.");
     }
+
+
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }

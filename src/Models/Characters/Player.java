@@ -36,20 +36,12 @@ public class Player {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
-
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getName() {

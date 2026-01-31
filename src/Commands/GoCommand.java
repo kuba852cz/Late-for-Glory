@@ -3,6 +3,7 @@ package Commands;
 import Logic.GameData;
 import Models.Characters.NPC;
 import Models.Characters.Player;
+import Models.Item;
 import Models.Room;
 
 public class GoCommand implements Command {
@@ -34,8 +35,36 @@ public class GoCommand implements Command {
                     }
                 }
                 player.setCurrentRoom(neighborRoom);
-                return "Přesunul ses do: " + neighborRoom.getName() + "\n" +
-                        neighborRoom.getDescription() + "\n" + neighborRoom.getNeighbors();
+                String result = "Přesunul ses do: " + neighborRoom.getName() + "\n" + neighborRoom.getDescription() + "\nPredmety v teto mistnosti: ";
+
+                if (neighborRoom.getItems().isEmpty()){
+                    result += "Zadne";
+                }else{
+                    for (String itemsID : neighborRoom.getItems()){
+                        Item item = gameData.findItem(itemsID);
+                        result += item.getName() + ", ";
+                    }
+                    result = result.substring(0, result.length()-2);
+                }
+
+                result += "\nPostavy v teto mistnosti: ";
+                if (neighborRoom.getNpcs().isEmpty()){
+                    result += "Zadne";
+                }else{
+                    for (String npcID : neighborRoom.getNpcs()){
+                        NPC npc = gameData.findNPC(npcID);
+                        result += npc.getName() + ", ";
+                    }
+                    result = result.substring(0, result.length()-2);
+                }
+
+                result += "\nSousedni mistnosti: ";
+                for (String neighborsID : neighborRoom.getNeighbors()){
+                    Room r = gameData.findRoom(neighborsID);
+                    result += r.getName() + ", ";
+                }
+                result = result.substring(0, result.length()-2);
+                return result;
 
             } else if (player.getCurrentRoom().getName().equalsIgnoreCase(targetingName)) {
                 return "V této místnosti právě ted jsi.";

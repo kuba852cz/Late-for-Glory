@@ -7,18 +7,13 @@ public class NPC {
     private String id;
     private String name;
     private String role;
-    private Room currentRoom;
+    private String homeLocationId;
     private String notes;
     private String starterDialogue;
     private boolean questFinished;
 
     public NPC() {
     }
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
 
     public String getId() {
         return id;
@@ -44,7 +39,4 @@ public class NPC {
         return starterDialogue;
     }
 
-    public void setStarterDialogue(String starterDialogue) {
-        this.starterDialogue = starterDialogue;
-    }
 }

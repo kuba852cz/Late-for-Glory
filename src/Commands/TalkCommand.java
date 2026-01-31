@@ -1,6 +1,7 @@
 package Commands;
 
 import Logic.Ending;
+import Logic.Game;
 import Logic.GameData;
 import Models.Characters.NPC;
 import Models.Characters.Player;
@@ -95,18 +96,19 @@ public class TalkCommand implements  Command {
         }
         System.out.println("2) Pouzit klasicky uder");
         System.out.println(">>>");
+        Game game = new Game();
         switch (volba.nextLine()) {
             case "1":
                 if(player.isKnowsWinningMove()){
                     System.out.println(ending.getGood());
-                    System.exit(0);
+                    game.setGameOver(true);
                 }else{
                     System.out.println("Nevis co mas delat.");
                     return dialogueRyan(Ryan);
                 }
             case "2":
                 System.out.println(ending.getBad());
-                System.exit(0);
+                game.setGameOver(true);
             default:
                 System.out.println("Takova volba neexistuje.");
                 return dialogueRyan(Ryan);
