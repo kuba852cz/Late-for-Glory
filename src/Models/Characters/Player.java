@@ -29,10 +29,6 @@ public class Player {
         inventory.remove(item);
     }
 
-    public boolean hasItem(Item item){
-        return false;
-    }
-
     public ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -53,24 +49,12 @@ public class Player {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getHomeLocationId() {
         return homeLocationId;
-    }
-
-    public void setHomeLocationId(String homeLocationId) {
-        this.homeLocationId = homeLocationId;
     }
 
     public boolean isFit() {

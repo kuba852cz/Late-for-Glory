@@ -47,33 +47,10 @@ public class Room {
         return items;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setNeighbors(ArrayList<String> neighbors) {
-        this.neighbors = neighbors;
-    }
-
-    public void setItems(ArrayList<String> items) {
-        this.items = items;
-    }
-
     public ArrayList<String> getNpcs() {
         return npcs;
     }
 
-    public void setNpcs(ArrayList<String> npcs) {
-        this.npcs = npcs;
-    }
 
     @Override
     public String toString() {
