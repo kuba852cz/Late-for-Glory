@@ -16,10 +16,6 @@ public class NPC {
     public NPC() {
     }
 
-    public String getDialogue(){
-        return null;
-    }
-
     public void giveItem(Item item){
     }
 

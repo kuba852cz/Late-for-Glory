@@ -29,7 +29,7 @@ public class TakeCommand implements Command {
                 return "Predmet " + targetingName + " byl sebran";
             }
         }
-        return "Predmet neni v teto mistnosti.";
+        return "Predmet " + targetingName + " neni v teto mistnosti.";
     }
 
     @Override

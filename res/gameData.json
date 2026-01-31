@@ -7,7 +7,7 @@
       "inventory": []
     }
   ,
-    "npc": [
+    "npcs": [
     {
       "id": "NPC_trainer",
       "name": "Marcus Cormier",
@@ -71,6 +71,11 @@
       "id": "item_machines",
       "name": "Posilovaci stroje",
       "description": "Nepřenašitelný předmět, který umožní hráči získat vhodnou kondici pro zápas."
+    },
+    {
+      "id": "item_contract_signed",
+      "name": "Podepsana smlouva",
+      "description": "Smlouva s cenným podpisem manažera. Teď jsi v balíku!"
     }
   ],
   "rooms": [

@@ -24,7 +24,7 @@ public class DropCommand implements Command {
                 return "Predmet " + targetingName + " byl odstranen";
             }
         }
-        return "Predmet nemas v inventari.";
+        return "Predmet " + targetingName +" nemas v inventari.";
     }
 
     @Override

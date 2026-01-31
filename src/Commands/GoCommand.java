@@ -34,7 +34,7 @@ public class GoCommand implements Command {
             }
         }
 
-        return "Tam se odsud jít nedá. (Zkontroluj, jestli jsi název napsal správně)";
+        return "Do mistnosti " + targetingName + " se odtud nedostanes.";
     }
 
 
