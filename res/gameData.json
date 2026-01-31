@@ -10,7 +10,7 @@
     "npcs": [
     {
       "id": "NPC_trainer",
-      "name": "Marcus Cormier",
+      "name": "Trener",
       "role": "NPC",
       "homeLocationId": "room_tournament",
       "notes": "Trenér, kterému hráč musí předat požadované předměty.",
@@ -18,7 +18,7 @@
     },
     {
       "id": "NPC_opponent",
-      "name": "Ryan Garcia",
+      "name": "Ryan",
       "role": "NPC",
       "homeLocationId": "room_ring",
       "notes": "Soupeř, proti kterému se hráč chystá.",
@@ -26,7 +26,7 @@
     },
     {
       "id": "NPC_unknown",
-      "name": "Mike Tyson",
+      "name": "Mike",
       "role": "NPC",
       "homeLocationId": "room_store",
       "notes": "Postava, která umožní hráči zvítězit.",
@@ -54,7 +54,7 @@
     },
     {
       "id": "item_guard",
-      "name": "Chranic na zuby",
+      "name": "Chranic",
       "description": "Ochrana zubů při souboji proti soupeři."
     },
     {
@@ -64,17 +64,17 @@
     },
     {
       "id": "item_photo",
-      "name": "Fotka s Tysonem",
+      "name": "Fotka",
       "description": "Předmět, na kterém je napsaná rada od Mike Tysona."
     },
     {
       "id": "item_machines",
-      "name": "Posilovaci stroje",
+      "name": "Stroje",
       "description": "Nepřenašitelný předmět, který umožní hráči získat vhodnou kondici pro zápas."
     },
     {
       "id": "item_contract_signed",
-      "name": "Podepsana smlouva",
+      "name": "Smlouva",
       "description": "Smlouva s cenným podpisem manažera. Teď jsi v balíku!"
     }
   ],
@@ -113,7 +113,7 @@
     },
     {
       "id": "room_managers_office",
-      "name": "Kancelar manazera",
+      "name": "Kancelar",
       "description": "Kancelář manažera turnaje; lze získat Podepsanou smlouvu.",
       "neighbors": ["room_tournament"],
       "items": [],

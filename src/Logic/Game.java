@@ -30,7 +30,7 @@ public class Game {
         commands.put("ukoncit", new QuitCommand(this));
         commands.put("vezmi", new TakeCommand(player, world));
         commands.put("mluv", new TalkCommand(player, world));
-        commands.put("pouzij", new UseCommand(player));
+        commands.put("pouzij", new UseCommand(player, world));
     }
 
     //prozatimni vygenerovana smycka (nasledne si ji udelam sam)
@@ -38,7 +38,7 @@ public class Game {
         inicialization();
         Scanner scanner = new Scanner(System.in);
         Ending ending = new Ending();
-        ending.getPrologue()
+        ending.getPrologue();
 
         System.out.println("--- JSI V MÍSTNOSTI: " + player.getCurrentRoom().getName() + " ---");
         System.out.println(player.getCurrentRoom().getDescription());

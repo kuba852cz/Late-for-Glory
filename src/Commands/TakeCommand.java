@@ -23,7 +23,10 @@ public class TakeCommand implements Command {
 
         for (String addingItemID : player.getCurrentRoom().getItems()) {
             Item item = gameData.findItem(addingItemID);
-            if (item.getName().equals(targetingName)) {
+            if (item.getName().equalsIgnoreCase(targetingName) && item.getId().equalsIgnoreCase("item_machines")) {
+                return "Tento predmet nelze sebrat";
+            }
+            if (item.getName().equalsIgnoreCase(targetingName)) {
                 player.pickUpItem(item);
                 player.getCurrentRoom().removeItem(item.getId());
                 return "Predmet " + targetingName + " byl sebran";

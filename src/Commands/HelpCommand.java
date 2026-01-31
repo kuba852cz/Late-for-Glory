@@ -44,7 +44,7 @@ public class HelpCommand implements Command {
                 "- mluv <npc>\n" +
                 "- ukoncit";
 
-        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + prikazy;
+        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + tenkaCara + prikazy;
     }
 
     @Override

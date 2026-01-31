@@ -168,7 +168,6 @@ public class TalkCommand implements  Command {
         }
 
         if (hasGloves && hasGuard && player.isFit() && hasContract) {
-            Trainer.setQuestFinished(true);
             return "\nTrenér: \"Výborně Jone! Máš všechno. Vydíš, že to šlo.\n" +
                     "Trenér: \"Jsi připraven? Běž do Ringu a ukaž mu to!\"";
         }
@@ -176,6 +175,11 @@ public class TalkCommand implements  Command {
             return "\nTrenér: \"Věci sice máš, ale podívej se na sebe! Jsi jako párátko.\n" +
                     "Mazej do tělocvičny máknout na strojích a dej si protein!\n" +
                     "V tomhle stavu by tě Ryan zabil.\"";
+        }
+        else if (player.isHasGlovesOn() && player.isHasGuardOn() && player.isFit()) {
+            Trainer.setQuestFinished(true);
+            return "\nTrenér: \"Parada! Jsem rad ze si to stihl vcas.\n"+
+                    "Trenér: \"Jsi připraven? Běž do Ringu a ukaž mu to!\"";
         }
         else{
             return "\nTrenér: \"Co tu děláš? Ještě nemáš všechno!\n" +

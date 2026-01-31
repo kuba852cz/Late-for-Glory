@@ -15,6 +15,9 @@ public class Player {
     private String homeLocationId;
     private boolean isFit = false;
     private boolean knowsWinningMove = false;
+    private boolean hasGlovesOn = false;
+    private boolean hasGuardOn = false;
+    private boolean drankProtein = false;
 
     public Player() {
         this.inventory = new ArrayList<>();
@@ -71,5 +74,29 @@ public class Player {
 
     public void setKnowsWinningMove(boolean knowsWinningMove) {
         this.knowsWinningMove = knowsWinningMove;
+    }
+
+    public boolean isHasGlovesOn() {
+        return hasGlovesOn;
+    }
+
+    public void setHasGlovesOn(boolean hasGlovesOn) {
+        this.hasGlovesOn = hasGlovesOn;
+    }
+
+    public boolean isHasGuardOn() {
+        return hasGuardOn;
+    }
+
+    public void setHasGuardOn(boolean hasGuardOn) {
+        this.hasGuardOn = hasGuardOn;
+    }
+
+    public boolean isDrankProtein() {
+        return drankProtein;
+    }
+
+    public void setDrankProtein(boolean drankProtein) {
+        this.drankProtein = drankProtein;
     }
 }

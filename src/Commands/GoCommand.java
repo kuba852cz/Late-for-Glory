@@ -27,17 +27,18 @@ public class GoCommand implements Command {
             Room neighborRoom = gameData.findRoom(idNeighbor);
 
             if (neighborRoom.getName().equalsIgnoreCase(targetingName)) {
+                if (neighborRoom.getId().equalsIgnoreCase("room_ring")) {
+                    NPC trener = gameData.findNPC("NPC_trainer");
+                    if (!trener.isQuestFinished()) {
+                        return "Trenér ti zastoupil cestu: \"Nikam nejdeš, mladej! Nejdřív mi ukaž, že na to máš!\"";
+                    }
+                }
                 player.setCurrentRoom(neighborRoom);
                 return "Přesunul ses do: " + neighborRoom.getName() + "\n" +
                         neighborRoom.getDescription() + "\n" + neighborRoom.getNeighbors();
 
             } else if (player.getCurrentRoom().getName().equalsIgnoreCase(targetingName)) {
                 return "V této místnosti právě ted jsi.";
-            } else if (neighborRoom.getId().equalsIgnoreCase("room_ring")) {
-                NPC trener = gameData.findNPC("NPC_trainer");
-                if (!trener.isQuestFinished()) {
-                    return "Trenér ti zastoupil cestu: \"Nikam nejdeš, mladej! Nejdřív mi ukaž, že na to máš!\"";
-                }
             }
         }
 
