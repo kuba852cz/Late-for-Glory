@@ -1,7 +1,7 @@
 package Commands;
 
-import Logic.Game;
 import Logic.GameData;
+import Models.Characters.NPC;
 import Models.Characters.Player;
 import Models.Item;
 
@@ -16,30 +16,49 @@ public class InspectCommand implements Command {
 
     @Override
     public String execute(String targetingName) {
+
         if (targetingName.isEmpty()) {
-            String popis = "Jsi v: " + player.getCurrentRoom().getName() + "\n" +player.getCurrentRoom().getDescription();
+            String popis = "Jsi v: " + player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
+
             if (!player.getCurrentRoom().getItems().isEmpty()) {
-                popis += "\n" + "Vidis tu: ";
-                for (String itemId : player.getCurrentRoom().getItems()){
+                popis += "\n" + "Vidis tu predmety: ";
+                for (String itemId : player.getCurrentRoom().getItems()) {
                     Item item = gameData.findItem(itemId);
                     popis += item.getName() + ", ";
                 }
                 popis = popis.substring(0, popis.length() - 2);
-            }else{
-                popis += "Nic zajimaveho tady nevidis.";
             }
+
+            if (!player.getCurrentRoom().getNpcs().isEmpty()) {
+                popis += "\n" + "Vidis tu postavy: ";
+                for (String npcId : player.getCurrentRoom().getNpcs()) {
+                    NPC npc = gameData.findNPC(npcId);
+                    popis += npc.getName() + ", ";
+                }
+                popis = popis.substring(0, popis.length() - 2);
+            }
+
             return popis;
         }
 
-        for (String addingItemID : player.getCurrentRoom().getItems()) {
-            Item item = gameData.findItem(addingItemID);
-            if (item.getName().equals(targetingName)) {
+        for (String inspectedItemID : player.getCurrentRoom().getItems()) {
+            Item item = gameData.findItem(inspectedItemID);
+            if (item.getName().equalsIgnoreCase(targetingName)) {
                 return item.getDescription();
             }
         }
 
+        for (String npcId : player.getCurrentRoom().getNpcs()) {
+            NPC npc = gameData.findNPC(npcId);
+            if (npc.getName().equalsIgnoreCase(targetingName)) {
+                return npc.getNotes();
+            }
+        }
+
+
+
         for (Item item : player.getInventory()) {
-            if (item.getName().equals(targetingName)) {
+            if (item.getName().equalsIgnoreCase(targetingName)) {
                 return item.getDescription();
             }
         }

@@ -11,6 +11,7 @@ public class NPC {
     private Room currentRoom;
     private String notes;
     private String starterDialogue;
+    private boolean questFinished;
 
     public NPC() {
     }
@@ -60,5 +61,21 @@ public class NPC {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public boolean isQuestFinished() {
+        return questFinished;
+    }
+
+    public void setQuestFinished(boolean questFinished) {
+        this.questFinished = questFinished;
+    }
+
+    public String getStarterDialogue() {
+        return starterDialogue;
+    }
+
+    public void setStarterDialogue(String starterDialogue) {
+        this.starterDialogue = starterDialogue;
     }
 }

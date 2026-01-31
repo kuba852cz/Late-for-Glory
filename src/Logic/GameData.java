@@ -81,5 +81,4 @@ public class GameData {
         throw new IllegalArgumentException("Neexistuje NPC s id: " + id);
     }
 
-
 }

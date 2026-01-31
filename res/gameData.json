@@ -79,63 +79,72 @@
       "name": "Domov",
       "description": "Zde bydlí hlavní postava a zde hráč začíná svou hru; lze získat Nepodepsanou smlouvu.",
       "neighbors": ["room_plaza"],
-      "items": ["item_contract"]
+      "items": ["item_contract"],
+      "npc": []
     },
     {
       "id": "room_plaza",
       "name": "Namesti",
       "description": "Slouží jako centrální křižovatka (rozcestí), která propojuje místa.",
       "neighbors": ["room_home", "room_store", "room_tournament", "room_gym"],
-      "items": []
+      "items": [],
+      "npc": []
     },
     {
       "id": "room_store",
       "name": "Obchod",
       "description": "Klasický obchod, kde hráč musí nakoupit; lze získat Protein a Fotku.",
       "neighbors": ["room_plaza"],
-      "items": ["item_protein"]
+      "items": ["item_protein"],
+      "npc": ["NPC_unknown"]
     },
     {
       "id": "room_tournament",
       "name": "Turnaj",
       "description": "Místo dění, kde čeká manažer až bude postava připravena.",
       "neighbors": ["room_plaza", "room_managers_office", "room_ring"],
-      "items": []
+      "items": [],
+      "npc": ["NPC_trainer"]
     },
     {
       "id": "room_managers_office",
       "name": "Kancelar manazera",
       "description": "Kancelář manažera turnaje; lze získat Podepsanou smlouvu.",
       "neighbors": ["room_tournament"],
-      "items": []
+      "items": [],
+      "npc": ["NPC_manager"]
     },
     {
       "id": "room_ring",
       "name": "Ring",
       "description": "Boxerský ring, kde čeká Ryan Garcia; zde se odehrává finální část hry.",
       "neighbors": ["room_tournament"],
-      "items": []
+      "items": [],
+      "npc": ["NPC_opponent"]
     },
     {
       "id": "room_gym",
       "name": "Telocvicna",
       "description": "2. domov postavy, kde pravidelně cvičí; lze zde získat Fit postavu.",
       "neighbors": ["room_plaza", "room_lockers", "room_showers"],
-      "items": ["item_machines"]
+      "items": ["item_machines"],
+      "npc": []
     },
     {
       "id": "room_lockers",
       "name": "Satna",
       "description": "Šatny, kde se postava připravuje na trénink; lze získat Rukavice.",
       "neighbors": ["room_gym"],
-      "items": ["item_gloves"]
+      "items": ["item_gloves"],
+      "npc": []
     },
     {
       "id": "room_showers",
       "name": "Sprchy",
       "description": "Místo, kam chodí postava po tréninku; lze získat Chránič na zuby.",
       "neighbors": ["room_gym"],
-      "items": ["item_guard"]
+      "items": ["item_guard"],
+      "npc": []
     }
   ]
 }

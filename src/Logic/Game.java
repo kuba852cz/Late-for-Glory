@@ -28,7 +28,7 @@ public class Game {
         commands.put("inventar", new InventoryCommand(player));
         commands.put("ukoncit", new QuitCommand(this));
         commands.put("vezmi", new TakeCommand(player, world));
-        commands.put("mluv", new TalkCommand(player));
+        commands.put("mluv", new TalkCommand(player, world));
         commands.put("pouzij", new UseCommand(player));
     }
 
@@ -42,7 +42,7 @@ public class Game {
         System.out.println(player.getCurrentRoom().getNeighbors());
 
         while (!gameOver) {
-            System.out.print("\n> ");
+            System.out.print("\n>>> ");
             // .trim() odstraní mezery na začátku a konci, aby to neblblo
             String input = scanner.nextLine().trim();
 

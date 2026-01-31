@@ -1,5 +1,7 @@
 package Models;
 
+import Models.Characters.NPC;
+
 import java.util.ArrayList;
 
 public class Room {
@@ -9,6 +11,13 @@ public class Room {
     private String description;
     private ArrayList<String> neighbors;
     private ArrayList<String> items;
+    private ArrayList<String> npcs;
+
+    public Room() {
+        this.neighbors = new ArrayList<>();
+        this.items = new ArrayList<>();
+        this.npcs = new ArrayList<>();
+    }
 
     public ArrayList<String> getNeighbors() {
         return neighbors;
@@ -36,6 +45,34 @@ public class Room {
 
     public ArrayList<String> getItems() {
         return items;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setNeighbors(ArrayList<String> neighbors) {
+        this.neighbors = neighbors;
+    }
+
+    public void setItems(ArrayList<String> items) {
+        this.items = items;
+    }
+
+    public ArrayList<String> getNpcs() {
+        return npcs;
+    }
+
+    public void setNpcs(ArrayList<String> npcs) {
+        this.npcs = npcs;
     }
 
     @Override
