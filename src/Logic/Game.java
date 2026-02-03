@@ -69,7 +69,7 @@ public class Game {
 
     public void start() {
         inicialization();
-        try(BufferedReader reader = new BufferedReader(new FileReader("preEnding.txt"))){
+        try(BufferedReader reader = new BufferedReader(new FileReader(("prologue.txt")))){
             String text = "";
             while((text = reader.readLine()) != null){
                 System.out.println(text);
@@ -91,7 +91,7 @@ public class Game {
             String[] parts = input.split(" ");
             String commandName = parts[0];
             String targetingName = "";
-            if (parts.length>0){
+            if (parts.length>1){
                 targetingName = parts[1];
             }
 
