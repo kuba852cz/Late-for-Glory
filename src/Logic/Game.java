@@ -6,6 +6,10 @@ import Models.Characters.Player;
 import Models.Item;
 import Models.Room;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -63,15 +67,21 @@ public class Game {
         return result;
     }
 
-    public void start(){
+    public void start() {
         inicialization();
+        try(BufferedReader reader = new BufferedReader(new FileReader("preEnding.txt"))){
+            String text = "";
+            while((text = reader.readLine()) != null){
+                System.out.println(text);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Scanner scanner = new Scanner(System.in);
-        Ending ending = new Ending();
-        System.out.println(ending.getPrologue());
         System.out.println(homeInfo());
 
         while(!gameOver){
-            System.out.print("\n>>>");
+            System.out.print("\n>>> ");
             String input = scanner.nextLine();
 
             if (input.isEmpty()){

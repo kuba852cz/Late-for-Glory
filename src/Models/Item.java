@@ -1,7 +1,5 @@
 package Models;
 
-import java.util.ArrayList;
-
 public class Item {
 
     private String id;

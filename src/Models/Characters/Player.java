@@ -1,6 +1,5 @@
 package Models.Characters;
 
-import Logic.GameData;
 import Models.Item;
 import Models.Room;
 
