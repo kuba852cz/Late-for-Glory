@@ -51,17 +51,18 @@ public class TalkCommand implements  Command {
             case "NPC_trainer":
                 return dialogueTrainer(targetNpc);
             case "NPC_opponent":
-                /*try(BufferedReader reader = new BufferedReader(new FileReader("res/preEnding.txt"))){
+                try(BufferedReader reader = new BufferedReader(new FileReader("res/preEnding.txt"))){
+                    System.out.println();
                     String text = "";
                     while((text = reader.readLine()) != null){
                         System.out.println(text);
                     }
+                    System.out.println();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
 
                }
 
-                 */
                 return dialogueRyan(targetNpc);
             case "NPC_unknown":
                 return dialogueTyson(targetNpc);
@@ -109,32 +110,34 @@ public class TalkCommand implements  Command {
         switch (volba.nextLine()) {
             case "1":
                 if(player.isKnowsWinningMove()){
-                   /* try(BufferedReader reader = new BufferedReader(new FileReader("res/goodEnding.txt"))){
+                   try(BufferedReader reader = new BufferedReader(new FileReader("res/goodEnding.txt"))){
+                       System.out.println();
                         String text = "";
                         while((text = reader.readLine()) != null){
                             System.out.println(text);
                         }
+                       System.out.println();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
 
-                    */
                     game.setGameOver(true);
                 }else{
                     System.out.println("Nevis co mas delat.");
                     return dialogueRyan(Ryan);
                 }
             case "2":
-                /*try(BufferedReader reader = new BufferedReader(new FileReader("res/badEnding.txt"))){
+                try(BufferedReader reader = new BufferedReader(new FileReader("res/badEnding.txt"))){
+                    System.out.println();
                     String text = "";
                     while((text = reader.readLine()) != null){
                         System.out.println(text);
                     }
+                    System.out.println();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
 
-                 */
                 game.setGameOver(true);
             default:
                 System.out.println("Takova volba neexistuje.");

@@ -69,11 +69,13 @@ public class Game {
 
     public void start() {
         inicialization();
-        try(BufferedReader reader = new BufferedReader(new FileReader(("prologue.txt")))){
+        try(BufferedReader reader = new BufferedReader(new FileReader("res/prologue.txt"))){
+            System.out.println();
             String text = "";
             while((text = reader.readLine()) != null){
                 System.out.println(text);
             }
+            System.out.println();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -110,4 +112,5 @@ public class Game {
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
+
 }
