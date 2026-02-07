@@ -37,14 +37,16 @@ public class HelpCommand implements Command {
 
         String prikazy = "Dostupné příkazy:\n" +
                 "- jdi <místnost>\n" +
-                "- vezmi <předmět>\n" +
+                "- seber <předmět>\n" +
                 "- poloz <předmět>\n" +
-                "- inventar\n" +
+                "- pouzij <předmět>\n"+
                 "- prozkoumat <předmět>\n" +
                 "- mluv <npc>\n" +
+                "- pomoc\n"+
+                "- inventar\n" +
                 "- ukoncit";
 
-        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + tenkaCara + prikazy;
+        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy;
     }
 
     @Override
