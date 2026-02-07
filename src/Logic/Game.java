@@ -98,19 +98,17 @@ public class Game {
             }
 
             if(commands.containsKey(commandName)){
+                Command command = commands.get(commandName);
                 String result = commands.get(commandName).execute(targetingName);
                 System.out.println(result);
+                if(command.exit()){
+                    gameOver = true;
+                }
             } else{
                 System.out.println("Neznamy prikaz.");
             }
-
         }
         System.out.println("\nDekuji za zahrani me hry <3.");
-    }
-
-
-    public void setGameOver(boolean gameOver) {
-        this.gameOver = gameOver;
     }
 
 }

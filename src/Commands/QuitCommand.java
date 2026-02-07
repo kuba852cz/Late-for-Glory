@@ -11,7 +11,6 @@ public class QuitCommand implements Command {
 
     @Override
     public String execute(String cilovyNazev) {
-        game.setGameOver(true);
         return "Hra ukoncena.";
     }
 

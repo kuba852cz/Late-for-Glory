@@ -15,6 +15,7 @@ public class TalkCommand implements  Command {
 
     private Player player;
     private GameData gameData;
+    private boolean gameOver = false;
 
     public TalkCommand(Player player, GameData gameData) {
         this.player = player;
@@ -105,8 +106,7 @@ public class TalkCommand implements  Command {
             System.out.println("1) ???");
         }
         System.out.println("2) Pouzit klasicky uder");
-        System.out.println(">>>");
-        Game game = new Game();
+        System.out.print(">>> ");
         switch (volba.nextLine()) {
             case "1":
                 if(player.isKnowsWinningMove()){
@@ -121,7 +121,8 @@ public class TalkCommand implements  Command {
                         throw new RuntimeException(e);
                     }
 
-                    game.setGameOver(true);
+                    gameOver = true;
+                   break;
                 }else{
                     System.out.println("Nevis co mas delat.");
                     return dialogueRyan(Ryan);
@@ -138,11 +139,12 @@ public class TalkCommand implements  Command {
                     throw new RuntimeException(e);
                 }
 
-                game.setGameOver(true);
+                break;
             default:
                 System.out.println("Takova volba neexistuje.");
                 return dialogueRyan(Ryan);
         }
+        return "Game Over";
     }
 
     public String dialogueManager(NPC Manager){
@@ -151,7 +153,7 @@ public class TalkCommand implements  Command {
         System.out.println("MOŽNOSTI:");
         System.out.println("1) 'Mohl byste mi podepsat tu smlouvu?'");
         System.out.println("2) (Odejít)");
-        System.out.println(">>>");
+        System.out.print(">>> ");
 
         switch (volba.nextLine()) {
             case "1":
@@ -201,14 +203,14 @@ public class TalkCommand implements  Command {
 
         if (hasGloves && hasGuard && player.isFit() && hasContract) {
             return "\nTrenér: \"Výborně Jone! Máš všechno. Vydíš, že to šlo.\n" +
-                    "Trenér: \"Jsi připraven? Běž do Ringu a ukaž mu to!\"";
+                    "Trenér: \"Jen si to prosimte jeste nasad na sebe\"";
         }
         else if (hasGloves && hasGuard && !player.isFit() && hasContract) {
             return "\nTrenér: \"Věci sice máš, ale podívej se na sebe! Jsi jako párátko.\n" +
                     "Mazej do tělocvičny máknout na strojích a dej si protein!\n" +
                     "V tomhle stavu by tě Ryan zabil.\"";
         }
-        else if (player.isHasGlovesOn() && player.isHasGuardOn() && player.isFit()) {
+        else if (player.isHasGlovesOn() && player.isHasGuardOn() && player.isFit()&& hasContract) {
             Trainer.setQuestFinished(true);
             return "\nTrenér: \"Parada! Jsem rad ze si to stihl vcas.\n"+
                     "Trenér: \"Jsi připraven? Běž do Ringu a ukaž mu to!\"";
@@ -223,6 +225,6 @@ public class TalkCommand implements  Command {
 
     @Override
     public boolean exit() {
-        return false;
+        return gameOver;
     }
 }

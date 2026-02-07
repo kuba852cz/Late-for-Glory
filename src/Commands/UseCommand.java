@@ -66,9 +66,11 @@ public class UseCommand implements Command {
                 return "Prohledl sis pfotku a na zadni strane ti nechal Mike radu, jak porazit Ryana.";
             case "item_guard":
                 player.setHasGuardOn(true);
+                player.getInventory().remove(itemToUse);
                 return "Nasadil sis chranic na zuby.";
             case "item_gloves":
                 player.setHasGlovesOn(true);
+                player.getInventory().remove(itemToUse);
                 return "nasadil sis na sebe rukavice.";
             case "item_protein":
                 player.setDrankProtein(true);
