@@ -26,10 +26,12 @@ public class TakeCommand implements Command {
             if (item.getName().equalsIgnoreCase(targetingName) && item.getId().equalsIgnoreCase("item_machines")) {
                 return "Tento predmet nelze sebrat";
             }
-            if (item.getName().equalsIgnoreCase(targetingName)) {
+            if (item.getName().equalsIgnoreCase(targetingName) && player.getInventory().size()<3) {
                 player.pickUpItem(item);
                 player.getCurrentRoom().removeItem(item.getId());
                 return "Predmet " + targetingName + " byl sebran";
+            }else{
+                return "nemas dostatek mistav inventari";
             }
         }
         return "Predmet " + targetingName + " neni v teto mistnosti.";
