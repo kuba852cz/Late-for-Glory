@@ -5,6 +5,11 @@ import Models.Room;
 
 import java.util.ArrayList;
 
+/**
+ * Represents the player character (Jon "The Wonder" Oliveira).
+ * Manages the inventory and various status flags that track the player's
+ * physical condition and equipment for the final fight.
+ */
 public class Player {
 
     private ArrayList<Item> inventory;
@@ -22,11 +27,19 @@ public class Player {
         this.inventory = new ArrayList<>();
     }
 
+    /**
+     * Adds an item to the player's inventory.
+     * @param item the item to be added
+     * @return true if the item was successfully added
+     */
     public boolean pickUpItem(Item item){
         inventory.add(item);
         return true;
     }
-
+    /**
+     * Removes an item from the player's inventory.
+     * @param item the item to be removed
+     */
     public void dropItem(Item item){
         inventory.remove(item);
     }

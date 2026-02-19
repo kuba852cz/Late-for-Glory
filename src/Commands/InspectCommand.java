@@ -14,6 +14,12 @@ public class InspectCommand implements Command {
         this.gameData = gameData;
     }
 
+    /**
+     * Inspects a specific item or provides details about the current room.
+     *
+     * @param targetingName the item the player wants to inspect (if blank, the player will inspect the room)
+     * @return Description of the item or, if targetingName is blank, a description of the room where the player is located.
+     */
     @Override
     public String execute(String targetingName) {
 

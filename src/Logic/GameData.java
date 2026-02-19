@@ -63,6 +63,11 @@ public class GameData {
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
     }
 
+    /**
+     * Finds a specific item by its identifier.
+     * @param id the identifier of the location to be found
+     * @return the matching location
+     */
     public Item findItem(String id) {
         for (Item i : items) {
             if (i.getId().equals(id)){
@@ -72,6 +77,11 @@ public class GameData {
         throw new IllegalArgumentException("Neexistuje predmet s id: " + id);
     }
 
+    /**
+     * Finds a specific npc by its identifier.
+     * @param id the identifier of the location to be found
+     * @return the matching location
+     */
     public NPC findNPC(String id) {
         for (NPC npc : npcs) {
             if (npc.getId().equals(id)){

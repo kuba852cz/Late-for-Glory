@@ -22,6 +22,13 @@ public class TalkCommand implements  Command {
         this.gameData = gameData;
     }
 
+    /**
+     * Initiates a conversation with an NPC. Every character has its own dialogue, which is handled by the methods below.
+     * If the player has spoken to the character earlier, the character will not repeat the conversation.
+     *
+     * @param targetingName the name of the character the player wants to speak to
+     * @return The dialogue text of the selected character, or an error message if the character is not found.
+     */
     @Override
     public String execute(String targetingName) {
         NPC targetNpc = null;
@@ -74,6 +81,12 @@ public class TalkCommand implements  Command {
         }
     }
 
+    /**
+     * Initiates a dialogue with Mike Tyson. Through this conversation, the player can obtain an important item for winning the match.
+     *
+     * @param Tyson the NPC object representing Mike Tyson
+     * @return The outcome of the dialogue, including whether the player received the item.
+     */
     public String dialogueTyson(NPC Tyson){
         Scanner volba = new Scanner(System.in);
         System.out.println("------------------------------------------------");
@@ -95,7 +108,14 @@ public class TalkCommand implements  Command {
                 return "takova volba neexistuje.";
         }
     }
-
+    /**
+     * Handles the final boss fight with Ryan Garcia.
+     * Based on the player's choices and knowledge (Tyson's advice),
+     * it triggers either the good or bad ending by reading from external files.
+     *
+     * @param Ryan the NPC object representing the opponent Ryan Garcia
+     * @return A "Game Over" message after the fight sequence is completed.
+     */
     public String dialogueRyan(NPC Ryan){
         Scanner volba = new Scanner(System.in);
         System.out.println("------------------------------------------------");
@@ -146,7 +166,14 @@ public class TalkCommand implements  Command {
         }
         return "Game Over";
     }
-
+    /**
+     * Handles the interaction with the Manager.
+     * If the player possesses an unsigned contract, the Manager signs it,
+     * which is a crucial requirement to enter the ring.
+     *
+     * @param Manager the NPC object representing the Manager
+     * @return A confirmation message of the signing or a reminder of the missing contract.
+     */
     public String dialogueManager(NPC Manager){
         Scanner volba = new Scanner(System.in);
         System.out.println("------------------------------------------------");
@@ -184,6 +211,14 @@ public class TalkCommand implements  Command {
         }
     }
 
+    /**
+     * Manages the interaction with the Trainer.
+     * He checks the player's fitness, equipment (gloves, guard), and signed contract.
+     * Only when all conditions are met and equipment is worn, the quest is marked as finished.
+     *
+     * @param Trainer the NPC object representing the Trainer
+     * @return Feedback on what items or conditions the player is still missing.
+     */
     public String dialogueTrainer(NPC Trainer){
         boolean hasGloves = false;
         boolean hasGuard = false;

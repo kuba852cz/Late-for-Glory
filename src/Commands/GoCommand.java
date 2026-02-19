@@ -16,6 +16,12 @@ public class GoCommand implements Command {
         this.gameData = gameData;
     }
 
+    /**
+     * Moves the player to the specified location. Blocks entrance to the ring if the player hasn't met the requirements.
+     *
+     * @param targetingName name of the location the player wants to enter
+     * @return Description of the new room, or an error message if the movement is blocked or invalid.
+     */
     @Override
     public String execute(String targetingName) {
 

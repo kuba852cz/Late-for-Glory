@@ -11,8 +11,14 @@ public class HelpCommand implements Command {
         this.player = player;
     }
 
+    /**
+     * Displays the game map and a list of available commands.
+     *
+     * @param targetingName not used for this command (ignored)
+     * @return The map and a list of commands the player can use
+     */
     @Override
-    public String execute(String cilovyNazev) {
+    public String execute(String targetingName) {
         String dvojiCara = "====================================================";
         String tenkaCara = "----------------------------------------------------";
 

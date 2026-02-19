@@ -10,8 +10,14 @@ public class InventoryCommand implements Command {
         this.player = player;
     }
 
+    /**
+     * Displays the contents of the player's inventory.
+     *
+     * @param targetingName not used for this command (ignored)
+     * @return A list of items the player currently has in their inventory.
+     */
     @Override
-    public String execute(String cilovyNazev) {
+    public String execute(String targetingName) {
         if (player.getInventory().isEmpty()){
             return "Inventar je prazdny";
         }

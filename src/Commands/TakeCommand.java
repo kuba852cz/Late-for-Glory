@@ -1,6 +1,5 @@
 package Commands;
 
-import Logic.Game;
 import Logic.GameData;
 import Models.Characters.Player;
 import Models.Item;
@@ -15,6 +14,13 @@ public class TakeCommand implements Command {
         this.gameData = gameData;
     }
 
+    /**
+     * Adds an item from the current room to the player's inventory.
+     * The player cannot pick up specific heavy items like "item_machines".
+     *
+     * @param targetingName the name of the item the player wants to pick up
+     * @return A confirmation message that the item was added to the inventory, or an error if it cannot be picked up.
+     */
     @Override
     public String execute(String targetingName) {
         if (targetingName.isEmpty()) {

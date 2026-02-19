@@ -7,7 +7,6 @@ import Models.Item;
 import Models.Room;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,6 +19,10 @@ public class Game {
     private Player player;
     private HashMap<String, Command> commands;
 
+    /**
+     * Initializes the game world by loading data from the JSON resource and
+     * registering all available game commands.
+     */
     public void inicialization(){
         commands = new HashMap<>();
 
@@ -38,6 +41,11 @@ public class Game {
         commands.put("pouzij", new UseCommand(player, world));
     }
 
+    /**
+     * Provides comprehensive information about the player's current room upon starting the game.
+     * It lists the room's description, items, NPCs, and available exits.
+     * * @return A formatted string detailing the current room's state, matching the output of GoCommand.
+     */
     public String homeInfo(){
         String result ="";
 
@@ -67,6 +75,10 @@ public class Game {
         return result;
     }
 
+    /**
+     * Starts the main game loop. It displays the prologue, initializes the starting room info,
+     * and continuously processes player input until the game ends.
+     */
     public void start() {
         inicialization();
         try(BufferedReader reader = new BufferedReader(new FileReader("res/prologue.txt"))){
@@ -110,5 +122,4 @@ public class Game {
         }
         System.out.println("\nDekuji za zahrani me hry <3.");
     }
-
 }

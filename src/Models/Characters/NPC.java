@@ -2,6 +2,10 @@ package Models.Characters;
 
 import Models.Room;
 
+/**
+ * Represents a Non-Player Character (NPC) in the game.
+ * This class stores data about characters, their roles, and their interaction states.
+ */
 public class NPC {
 
     private String id;

@@ -15,6 +15,13 @@ public class UseCommand implements Command {
         this.gameData = gameData;
     }
 
+    /**
+     * Executes an action with a specific item or object.
+     * The result depends on the type of object and whether the player meets the necessary requirements.
+     *
+     * @param targetingName the name of the item or object the player wants to use
+     * @return A message confirming the object's activation or an error if requirements are not met.
+     */
     @Override
     public String execute(String targetingName) {
 

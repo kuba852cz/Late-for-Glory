@@ -11,6 +11,12 @@ public class DropCommand implements Command {
         this.player = player;
     }
 
+    /**
+     * Drops the specified item from the player's inventory into the current room.
+     *
+     * @param targetingName name of the item the player wants to remove
+     * @return Confirmation if the item was removed or not. If so, the item is deleted from the inventory.
+     */
     @Override
     public String execute(String targetingName) {
         if (targetingName.isEmpty()) {

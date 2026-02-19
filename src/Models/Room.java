@@ -1,9 +1,12 @@
 package Models;
 
-import Models.Characters.NPC;
 
 import java.util.ArrayList;
-
+/**
+ * Represents a location within the game world.
+ * This class stores information about the room's description,
+ * its connections to other rooms (neighbors), and the IDs of items and NPCs present.
+ */
 public class Room {
 
     private String id;
@@ -19,14 +22,25 @@ public class Room {
         this.npcs = new ArrayList<>();
     }
 
+    /**
+     * @return a list of IDs for all rooms connected to this one.
+     */
     public ArrayList<String> getNeighbors() {
         return neighbors;
     }
 
+    /**
+     * Adds an item ID to/from the room's collection.
+     * @param itemId the unique identifier of the item.
+     */
     public void addItem(String itemId){
         this.items.add(itemId);
     }
 
+    /**
+     * Removes an item ID to/from the room's collection.
+     * @param itemId the unique identifier of the item.
+     */
     public void removeItem(String itemId){
         this.items.remove(itemId);
     }
