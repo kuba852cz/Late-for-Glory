@@ -1,13 +1,13 @@
 {
   "player":
-    {
-      "id": "Player_mainCharacter",
-      "name": "Jon Oliveira",
-      "homeLocationId": "room_home",
-      "inventory": []
-    }
-  ,
-    "npcs": [
+  {
+    "id": "Player_mainCharacter",
+    "name": "Jon Oliveira",
+    "homeLocationId": "room_home",
+    "inventory": []
+  }
+,
+  "npcs": [
     {
       "id": "NPC_trainer",
       "name": "Trener",
@@ -82,7 +82,7 @@
     {
       "id": "room_home",
       "name": "Domov",
-      "description": "Zde bydlí hlavní postava a zde hráč začíná svou hru; lze získat Nepodepsanou smlouvu.",
+      "description": "Tvůj domov, kam chodíš odpočívat.",
       "neighbors": ["room_plaza"],
       "items": ["item_contract"],
       "npcs": []
@@ -98,7 +98,7 @@
     {
       "id": "room_store",
       "name": "Obchod",
-      "description": "Klasický obchod, kde hráč musí nakoupit; lze získat Protein a Fotku.",
+      "description": "Klasický obchod, kde hráč musí nakoupit.",
       "neighbors": ["room_plaza"],
       "items": ["item_protein"],
       "npcs": ["NPC_unknown"]
@@ -106,7 +106,7 @@
     {
       "id": "room_tournament",
       "name": "Turnaj",
-      "description": "Místo dění, kde čeká manažer až bude postava připravena.",
+      "description": "Místo dění, kde čeká trenér až bude postava připravena.",
       "neighbors": ["room_plaza", "room_managers_office", "room_ring"],
       "items": [],
       "npcs": ["NPC_trainer"]
@@ -114,7 +114,7 @@
     {
       "id": "room_managers_office",
       "name": "Kancelar",
-      "description": "Kancelář manažera turnaje; lze získat Podepsanou smlouvu.",
+      "description": "Kancelář manažera turnaje.",
       "neighbors": ["room_tournament"],
       "items": [],
       "npcs": ["NPC_manager"]
@@ -122,7 +122,7 @@
     {
       "id": "room_ring",
       "name": "Ring",
-      "description": "Boxerský ring, kde čeká Ryan Garcia; zde se odehrává finální část hry.",
+      "description": "Boxerský ring, kde čeká Ryan Garcia. (Pro zahájení bitvy promluv s Ryanem)",
       "neighbors": ["room_tournament"],
       "items": [],
       "npcs": ["NPC_opponent"]
@@ -130,7 +130,7 @@
     {
       "id": "room_gym",
       "name": "Telocvicna",
-      "description": "2. domov postavy, kde pravidelně cvičí; lze zde získat Fit postavu.",
+      "description": "2. domov postavy, kde pravidelně cvičí.",
       "neighbors": ["room_plaza", "room_lockers", "room_showers"],
       "items": ["item_machines"],
       "npcs": []
@@ -138,7 +138,7 @@
     {
       "id": "room_lockers",
       "name": "Satna",
-      "description": "Šatny, kde se postava připravuje na trénink; lze získat Rukavice.",
+      "description": "Šatny, kde se postava připravuje na trénink.",
       "neighbors": ["room_gym"],
       "items": ["item_gloves"],
       "npcs": []
@@ -146,7 +146,7 @@
     {
       "id": "room_showers",
       "name": "Sprchy",
-      "description": "Místo, kam chodí postava po tréninku; lze získat Chránič na zuby.",
+      "description": "Místo, kam chodí postava po tréninku.",
       "neighbors": ["room_gym"],
       "items": ["item_guard"],
       "npcs": []
