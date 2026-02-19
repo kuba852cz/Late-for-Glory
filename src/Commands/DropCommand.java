@@ -27,10 +27,10 @@ public class DropCommand implements Command {
             if (removingItem.getName().equalsIgnoreCase(targetingName)){
                 player.dropItem(removingItem);
                 player.getCurrentRoom().addItem(removingItem.getId());
-                return "Predmet " + targetingName + " byl odstranen";
+                return "Předmět " + targetingName + " byl odstraňen";
             }
         }
-        return "Predmet " + targetingName +" nemas v inventari.";
+        return "Předmět " + targetingName +" nemáš v inventáři.";
     }
 
     @Override

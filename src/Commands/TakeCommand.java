@@ -30,17 +30,17 @@ public class TakeCommand implements Command {
         for (String addingItemID : player.getCurrentRoom().getItems()) {
             Item item = gameData.findItem(addingItemID);
             if (item.getName().equalsIgnoreCase(targetingName) && item.getId().equalsIgnoreCase("item_machines")) {
-                return "Tento predmet nelze sebrat";
+                return "Tento předmět nelze sebrat";
             }
             if (item.getName().equalsIgnoreCase(targetingName) && player.getInventory().size()<3) {
                 player.pickUpItem(item);
                 player.getCurrentRoom().removeItem(item.getId());
-                return "Predmet " + targetingName + " byl sebran";
+                return "Předmět " + targetingName + " byl sebrán";
             }else{
-                return "nemas dostatek mistav inventari";
+                return "nemáš dostatek místa inventáři";
             }
         }
-        return "Predmet " + targetingName + " neni v teto mistnosti.";
+        return "Předmět " + targetingName + " není v této místnosti.";
     }
 
     @Override

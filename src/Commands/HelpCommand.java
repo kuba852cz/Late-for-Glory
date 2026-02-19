@@ -1,6 +1,5 @@
 package Commands;
 
-import Logic.Game;
 import Models.Characters.Player;
 
 public class HelpCommand implements Command {

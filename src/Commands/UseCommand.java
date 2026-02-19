@@ -26,7 +26,7 @@ public class UseCommand implements Command {
     public String execute(String targetingName) {
 
         if (targetingName.isEmpty()) {
-            return "Co chceš použít? (Napiš: pouzij <předmět>)";
+            return "Co chceš použít? (Napiš: použij <předmět>)";
         }
 
         Item itemToUse = null;
@@ -58,33 +58,33 @@ public class UseCommand implements Command {
 
         switch (itemToUse.getId()){
             case "item_contract_signed":
-                return "uz mas podepsanou smlouvu.";
+                return "Už máš podepsanou smlouvu.";
             case "item_contract":
-                return "Nemuzes zfalsovat podpis manazera!";
+                return "Nemůžeš zfalšovat podpis manažera!";
             case "item_machines":
                 if(player.isDrankProtein()){
                     player.setFit(true);
-                    return "Dal sis poradne do tela a nyni si fyzicky pripraven utakt se s Ryanem Garciou.";
+                    return "Dal jsi si pořádně do těla a nyní jsi fyzicky připraven utkat se s Ryanem Garciou.";
                 }
-                return "Prvni si musis dat protein, abys toho vyuzil na maximum!";
+                return "Nejdřív si musíš dát protein, abys toho využil na maximum!";
             case "item_photo":
                 player.setKnowsWinningMove(true);
                 player.getInventory().remove(itemToUse);
-                return "Prohledl sis pfotku a na zadni strane ti nechal Mike radu, jak porazit Ryana.";
+                return "Prohlédl jsi si fotku a na zadní straně ti nechal Mike radu, jak porazit Ryana.";
             case "item_guard":
                 player.setHasGuardOn(true);
                 player.getInventory().remove(itemToUse);
-                return "Nasadil sis chranic na zuby.";
+                return "Nasadil jsi si chránič na zuby.";
             case "item_gloves":
                 player.setHasGlovesOn(true);
                 player.getInventory().remove(itemToUse);
-                return "nasadil sis na sebe rukavice.";
+                return "Nasadil jsi si na sebe rukavice.";
             case "item_protein":
                 player.setDrankProtein(true);
                 player.getInventory().remove(itemToUse);
-                return "Vypil si protein a nyni muzes naplno vyuzit svou silu!";
+                return "Vypil jsi protein a nyní můžeš naplno využít svou sílu!";
             default:
-                return "Tento predmet nelze pouzit";
+                return "Tento předmět nelze použít.";
         }
     }
 

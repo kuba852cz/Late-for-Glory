@@ -74,7 +74,7 @@ public class GameData {
                 return i;
             }
         }
-        throw new IllegalArgumentException("Neexistuje predmet s id: " + id);
+        throw new IllegalArgumentException("Neexistuje předmět s id: " + id);
     }
 
     /**

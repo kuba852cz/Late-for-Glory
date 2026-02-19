@@ -68,9 +68,7 @@ public class TalkCommand implements  Command {
                     System.out.println();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-
-               }
-
+                }
                 return dialogueRyan(targetNpc);
             case "NPC_unknown":
                 return dialogueTyson(targetNpc);
@@ -97,17 +95,18 @@ public class TalkCommand implements  Command {
 
         switch (volba.nextLine()) {
             case "1":
-                System.out.println("Jasne neni problem. Hodne stesti do zapasu proti Garciovi! Nepodcen ho.");
+                System.out.println("Jasně, není problém. Hodně štěstí do zápasu proti Garciovi! Nepodceň ho.");
                 Item item = gameData.findItem("item_photo");
                 player.pickUpItem(item);
                 Tyson.setQuestFinished(true);
                 return "Mike ti dal svou podepsanou fotku.";
             case "2":
-                return "Hodne stesti do zapasu mladiku!";
+                return "Hodně štěstí do zápasu, mladíku!";
             default:
-                return "takova volba neexistuje.";
+                return "Taková volba neexistuje.";
         }
     }
+
     /**
      * Handles the final boss fight with Ryan Garcia.
      * Based on the player's choices and knowledge (Tyson's advice),
@@ -121,30 +120,29 @@ public class TalkCommand implements  Command {
         System.out.println("------------------------------------------------");
         System.out.println("MOŽNOSTI:");
         if (player.isKnowsWinningMove()) {
-            System.out.println("1) Pouzit radu od Mike Tysona.");
+            System.out.println("1) Použít radu od Mika Tysona.");
         }else{
             System.out.println("1) ???");
         }
-        System.out.println("2) Pouzit klasicky uder");
+        System.out.println("2) Použít klasický úder.");
         System.out.print(">>> ");
         switch (volba.nextLine()) {
             case "1":
                 if(player.isKnowsWinningMove()){
-                   try(BufferedReader reader = new BufferedReader(new FileReader("res/goodEnding.txt"))){
-                       System.out.println();
+                    try(BufferedReader reader = new BufferedReader(new FileReader("res/goodEnding.txt"))){
+                        System.out.println();
                         String text = "";
                         while((text = reader.readLine()) != null){
                             System.out.println(text);
                         }
-                       System.out.println();
+                        System.out.println();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-
                     gameOver = true;
-                   break;
+                    break;
                 }else{
-                    System.out.println("Nevis co mas delat.");
+                    System.out.println("Nevíš, co máš dělat.");
                     return dialogueRyan(Ryan);
                 }
             case "2":
@@ -158,14 +156,14 @@ public class TalkCommand implements  Command {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
                 break;
             default:
-                System.out.println("Takova volba neexistuje.");
+                System.out.println("Taková volba neexistuje.");
                 return dialogueRyan(Ryan);
         }
         return "Game Over";
     }
+
     /**
      * Handles the interaction with the Manager.
      * If the player possesses an unsigned contract, the Manager signs it,
@@ -192,22 +190,19 @@ public class TalkCommand implements  Command {
                 }
                 if (contract != null) {
                     player.getInventory().remove(contract);
-
-                    System.out.println("Jasně není problém. Hodně štěstí do zápasu proti Garciovi! Nepodceň ho.");
-
+                    System.out.println("Jasně, není problém. Hodně štěstí do zápasu proti Garciovi! Nepodceň ho.");
                     Item signed = gameData.findItem("item_contract_signed");
                     if (signed != null) {
                         player.pickUpItem(signed);
                     }
-
                     Manager.setQuestFinished(true);
                     return "Manažer ti podal podepsanou smlouvu.";
                 }
-                return "Chlapce, prvni pro me musis mit tu smlouvu. Jinak ti nemam co podepsat.";
+                return "Chlapče, první pro mě musíš mít tu smlouvu. Jinak ti nemám co podepsat.";
             case "2":
-                return "tak proc sem vubec lezes, kdyz rovnou odchazis?";
+                return "Tak proč sem vůbec lezeš, když rovnou odcházíší?";
             default:
-                return "takova volba neexistuje.";
+                return "Taková volba neexistuje.";
         }
     }
 
@@ -237,8 +232,8 @@ public class TalkCommand implements  Command {
         }
 
         if (hasGloves && hasGuard && player.isFit() && hasContract) {
-            return "\nTrenér: \"Výborně Jone! Máš všechno. Vydíš, že to šlo.\n" +
-                    "Trenér: \"Jen si to prosimte jeste nasad na sebe\"";
+            return "\nTrenér: \"Výborně, Jone! Máš všechno. Vidíš, že to šlo.\n" +
+                    "Trenér: \"Jen si to prosím tě ještě nasaď na sebe.\"";
         }
         else if (hasGloves && hasGuard && !player.isFit() && hasContract) {
             return "\nTrenér: \"Věci sice máš, ale podívej se na sebe! Jsi jako párátko.\n" +
@@ -247,15 +242,14 @@ public class TalkCommand implements  Command {
         }
         else if (player.isHasGlovesOn() && player.isHasGuardOn() && player.isFit()&& hasContract) {
             Trainer.setQuestFinished(true);
-            return "\nTrenér: \"Parada! Jsem rad ze si to stihl vcas.\n"+
-                    "Trenér: \"Jsi připraven? Běž do Ringu a ukaž mu to!\"";
+            return "\nTrenér: \"Paráda! Jsem rád, že jsi to stihl včas.\n"+
+                    "Trenér: \"Jsi připraven? Běž do ringu a ukaž mu to!\"";
         }
         else{
             return "\nTrenér: \"Co tu děláš? Ještě nemáš všechno!\n" +
-                    "Potřebuješ: Podepsanou smlouvu, Rukavice, Chránič na zuby a svou formu!\n" +
+                    "Potřebuješ: podepsanou smlouvu, rukavice, chránič na zuby a svou formu!\n" +
                     "Takhle tě do ringu nepustím!\"";
         }
-
     }
 
     @Override

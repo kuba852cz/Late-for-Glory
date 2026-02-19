@@ -17,7 +17,7 @@ public class QuitCommand implements Command {
      */
     @Override
     public String execute(String targetingName) {
-        return "Hra ukoncena.";
+        return "Hra ukončena.";
     }
 
     @Override

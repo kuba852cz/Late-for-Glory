@@ -27,7 +27,7 @@ public class InspectCommand implements Command {
             String popis = "Jsi v: " + player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription();
 
             if (!player.getCurrentRoom().getItems().isEmpty()) {
-                popis += "\n" + "Vidis tu predmety: ";
+                popis += "\n" + "Vidíš tu předměty: ";
                 for (String itemId : player.getCurrentRoom().getItems()) {
                     Item item = gameData.findItem(itemId);
                     popis += item.getName() + ", ";
@@ -36,7 +36,7 @@ public class InspectCommand implements Command {
             }
 
             if (!player.getCurrentRoom().getNpcs().isEmpty()) {
-                popis += "\n" + "Vidis tu postavy: ";
+                popis += "\n" + "Vidíš tu postavy: ";
                 for (String npcId : player.getCurrentRoom().getNpcs()) {
                     NPC npc = gameData.findNPC(npcId);
                     popis += npc.getName() + ", ";
@@ -68,7 +68,7 @@ public class InspectCommand implements Command {
                 return item.getDescription();
             }
         }
-        return "Nic zajimaveho se zde nenachazi.";
+        return "Nic zajímavého se zde nenachazí.";
     }
 
     @Override

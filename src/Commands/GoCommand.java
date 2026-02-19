@@ -41,10 +41,10 @@ public class GoCommand implements Command {
                     }
                 }
                 player.setCurrentRoom(neighborRoom);
-                String result = "Přesunul ses do: " + neighborRoom.getName() + "\n" + neighborRoom.getDescription() + "\nPredmety v teto mistnosti: ";
+                String result = "Přesunul ses do: " + neighborRoom.getName() + "\n" + neighborRoom.getDescription() + "\nPředměty v této místnosti: ";
 
                 if (neighborRoom.getItems().isEmpty()){
-                    result += "Zadne";
+                    result += "Žádné";
                 }else{
                     for (String itemsID : neighborRoom.getItems()){
                         Item item = gameData.findItem(itemsID);
@@ -53,9 +53,9 @@ public class GoCommand implements Command {
                     result = result.substring(0, result.length()-2);
                 }
 
-                result += "\nPostavy v teto mistnosti: ";
+                result += "\nPostavy v této místnosti: ";
                 if (neighborRoom.getNpcs().isEmpty()){
-                    result += "Zadne";
+                    result += "Žádné";
                 }else{
                     for (String npcID : neighborRoom.getNpcs()){
                         NPC npc = gameData.findNPC(npcID);
@@ -64,7 +64,7 @@ public class GoCommand implements Command {
                     result = result.substring(0, result.length()-2);
                 }
 
-                result += "\nSousedni mistnosti: ";
+                result += "\nSousední místnosti: ";
                 for (String neighborsID : neighborRoom.getNeighbors()){
                     Room r = gameData.findRoom(neighborsID);
                     result += r.getName() + ", ";
@@ -73,11 +73,11 @@ public class GoCommand implements Command {
                 return result;
 
             } else if (player.getCurrentRoom().getName().equalsIgnoreCase(targetingName)) {
-                return "V této místnosti právě ted jsi.";
+                return "V této místnosti právě teď jsi.";
             }
         }
 
-        return "Do mistnosti " + targetingName + " se odtud nedostanes.";
+        return "Do místnosti " + targetingName + " se odtud nedostaneš.";
     }
 
 

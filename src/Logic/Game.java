@@ -49,15 +49,15 @@ public class Game {
     public String homeInfo(){
         String result ="";
 
-        result = "Jsi v mistnosti: " + player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription() + "\nPredmety v teto mistnosti: ";
+        result = "Jsi v místnosti: " + player.getCurrentRoom().getName() + "\n" + player.getCurrentRoom().getDescription() + "\nPředměty v této místnosti: ";
         for (String itemsID : player.getCurrentRoom().getItems()){
             Item item = world.findItem(itemsID);
             result += item.getName() + ", ";
         }
         result = result.substring(0, result.length()-2);
-        result += "\nPostavy v teto mistnosti: ";
+        result += "\nPostavy v této místnosti: ";
         if (player.getCurrentRoom().getNpcs().isEmpty()){
-            result += "Zadne";
+            result += "Žádné";
         }else{
             for (String npcID : player.getCurrentRoom().getNpcs()){
                 NPC npc = world.findNPC(npcID);
@@ -65,7 +65,7 @@ public class Game {
             }
             result = result.substring(0, result.length()-2);
         }
-        result += "\nSousedni mistnosti: ";
+        result += "\nSousední místnosti: ";
         for (String neighborsID : player.getCurrentRoom().getNeighbors()){
             Room r = world.findRoom(neighborsID);
             result += r.getName() + ", ";
@@ -99,7 +99,7 @@ public class Game {
             String input = scanner.nextLine();
 
             if (input.isEmpty()){
-                System.out.println("nic si nenapsal.");
+                System.out.println("Nic si nenapsal.");
             }
 
             String[] parts = input.split(" ");
@@ -117,9 +117,9 @@ public class Game {
                     gameOver = true;
                 }
             } else{
-                System.out.println("Neznamy prikaz.");
+                System.out.println("Neznamý příkaz.");
             }
         }
-        System.out.println("\nDekuji za zahrani me hry <3.");
+        System.out.println("\nDěkuji za zahraní mé hry <3.");
     }
 }

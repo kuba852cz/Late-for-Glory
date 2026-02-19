@@ -19,10 +19,10 @@ public class InventoryCommand implements Command {
     @Override
     public String execute(String targetingName) {
         if (player.getInventory().isEmpty()){
-            return "Inventar je prazdny";
+            return "Inventář je prazdný";
         }
 
-        String items = "V Inventari mas: ";
+        String items = "V inventáři máš: ";
         for (Item item : player.getInventory()){
             items += item.getName() + ", ";
         }
