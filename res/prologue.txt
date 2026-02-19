@@ -1,1 +1,34 @@
-prologue
+Vítej ve hře:
+
+LATE FOR GLORY
+
+--------------------------------------------------------------------------------
+
+27. 6. 2032, Kalifornie, USA
+
+Dnes je den D. Den, o kterém jsi snil už jako malej kluk.
+Vyrůstal jsi bez peněz, ale s o to brutálnější motivací.
+Tvůj trenér Marcus Cormier tě na tuhle chvíli dřel do krve, protože v tobě viděl šampiona.
+Dnes večer máš v ringu vyzvat úřadujícího krále, Ryana Garciu, o titul mistra světa v boxu.
+
+Má to ale jeden obrovský háček...
+
+Včera po tiskovce jsi to na afterparty trochu přepískl.
+Zaspal jsi budík. Zaspal jsi zmeškané hovory od naštvaného trenéra.
+Málem jsi zaspal svou životní šanci.
+
+Musíš sebou hodit, Jone. Hodiny tikají a Ryan nečeká.
+
+--------------------------------------------------------------------------------
+
+Základní příkazy pro přežití:
+
+- jdi <místnost> = Vejdeš do vybrané místnosti
+- seber <předmět> = Sebereš vybraný předmět
+- poloz <předmět> = Položíš vybraný předmět
+- pouzij <předmět> = Použiješ vybraný předmět
+- prozkoumat <předmět>/nic = Popíše ti vybraný předmět, nebo defaultně místnost
+- mluv <npc> = Spustí se dialog s postavou
+- pomoc = Ukáže se ti nápověda s mapou
+- inventar = Ukáže ti tvé věci v inventáři
+- ukoncit = Hra se okamžitě ukončí
