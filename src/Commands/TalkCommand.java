@@ -91,7 +91,8 @@ public class TalkCommand implements  Command {
         System.out.println("MOŽNOSTI:");
         System.out.println("1) 'Nazdar Miku! Mohl bych s tebou fotku?'");
         System.out.println("2) (Odejít)");
-        System.out.println(">>>");
+        System.out.println(">>> ");
+        String result = "Mike Tyson: ";
 
         switch (volba.nextLine()) {
             case "1":
@@ -99,9 +100,11 @@ public class TalkCommand implements  Command {
                 Item item = gameData.findItem("item_photo");
                 player.pickUpItem(item);
                 Tyson.setQuestFinished(true);
-                return "Mike ti dal svou podepsanou fotku.";
+                result += "\"Jasně, není problém. Hodně štěstí do zápasu proti Garciovi! Nepodceň ho.\"" + "\nMike ti dal svou podepsanou fotku.";
+                return result;
             case "2":
-                return "Hodně štěstí do zápasu, mladíku!";
+                result += "\"Hodně štěstí do zápasu, mladíku!\"";
+                return result;
             default:
                 return "Taková volba neexistuje.";
         }
@@ -179,6 +182,7 @@ public class TalkCommand implements  Command {
         System.out.println("1) 'Mohl byste mi podepsat tu smlouvu?'");
         System.out.println("2) (Odejít)");
         System.out.print(">>> ");
+        String result = "Manažer: ";
 
         switch (volba.nextLine()) {
             case "1":
@@ -190,17 +194,19 @@ public class TalkCommand implements  Command {
                 }
                 if (contract != null) {
                     player.getInventory().remove(contract);
-                    System.out.println("Jasně, není problém. Hodně štěstí do zápasu proti Garciovi! Nepodceň ho.");
+                    result += "\"Jasně, není problém. Hodně štěstí do zápasu proti Garciovi! Nepodceň ho.\"" + "\nManažer ti podal podepsanou smlouvu.";
                     Item signed = gameData.findItem("item_contract_signed");
                     if (signed != null) {
                         player.pickUpItem(signed);
                     }
                     Manager.setQuestFinished(true);
-                    return "Manažer ti podal podepsanou smlouvu.";
+                    return result;
                 }
-                return "Chlapče, první pro mě musíš mít tu smlouvu. Jinak ti nemám co podepsat.";
+                result += "\"Chlapče, první pro mě musíš mít tu smlouvu. Jinak ti nemám co podepsat.\"";
+                return result;
             case "2":
-                return "Tak proč sem vůbec lezeš, když rovnou odcházíší?";
+                result +="\"Tak proč sem vůbec lezeš, když rovnou odcházíší?\"";
+                return result;
             default:
                 return "Taková volba neexistuje.";
         }
@@ -219,6 +225,8 @@ public class TalkCommand implements  Command {
         boolean hasGuard = false;
         boolean hasContract = false;
 
+        String result = "Trenér: ";
+
         for (Item item : player.getInventory()) {
             if (item.getId().equals("item_gloves")) {
                 hasGloves = true;
@@ -232,21 +240,21 @@ public class TalkCommand implements  Command {
         }
 
         if (hasGloves && hasGuard && player.isFit() && hasContract) {
-            return "\nTrenér: \"Výborně, Jone! Máš všechno. Vidíš, že to šlo.\n" +
-                    "Trenér: \"Jen si to prosím tě ještě nasaď na sebe.\"";
+            return result +"\"Výborně, Jone! Máš všechno. Vidíš, že to šlo.\n" +
+                    " \"Jen si to prosím tě ještě nasaď na sebe.\"";
         }
         else if (hasGloves && hasGuard && !player.isFit() && hasContract) {
-            return "\nTrenér: \"Věci sice máš, ale podívej se na sebe! Jsi jako párátko.\n" +
+            return result + "\"Věci sice máš, ale podívej se na sebe! Jsi jako párátko.\n" +
                     "Mazej do tělocvičny máknout na strojích a dej si protein!\n" +
                     "V tomhle stavu by tě Ryan zabil.\"";
         }
         else if (player.isHasGlovesOn() && player.isHasGuardOn() && player.isFit()&& hasContract) {
             Trainer.setQuestFinished(true);
-            return "\nTrenér: \"Paráda! Jsem rád, že jsi to stihl včas.\n"+
-                    "Trenér: \"Jsi připraven? Běž do ringu a ukaž mu to!\"";
+            return result + "\"Paráda! Jsem rád, že jsi to stihl včas.\n"+
+                    "\"Jsi připraven? Běž do ringu a ukaž mu to!\"";
         }
         else{
-            return "\nTrenér: \"Co tu děláš? Ještě nemáš všechno!\n" +
+            return result + "\"Co tu děláš? Ještě nemáš všechno!\n" +
                     "Potřebuješ: podepsanou smlouvu, rukavice, chránič na zuby a svou formu!\n" +
                     "Takhle tě do ringu nepustím!\"";
         }
