@@ -9,6 +9,8 @@ import Models.Item;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class TalkCommand implements  Command {
@@ -59,7 +61,7 @@ public class TalkCommand implements  Command {
             case "NPC_trainer":
                 return dialogueTrainer(targetNpc);
             case "NPC_opponent":
-                try(BufferedReader reader = new BufferedReader(new FileReader("res/preEnding.txt"))){
+                try(BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream("/preEnding.txt"))))){
                     System.out.println();
                     String text = "";
                     while((text = reader.readLine()) != null){
@@ -132,7 +134,7 @@ public class TalkCommand implements  Command {
         switch (volba.nextLine()) {
             case "1":
                 if(player.isKnowsWinningMove()){
-                    try(BufferedReader reader = new BufferedReader(new FileReader("res/goodEnding.txt"))){
+                    try(BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream("/goodEnding.txt"))))){
                         System.out.println();
                         String text = "";
                         while((text = reader.readLine()) != null){
@@ -149,7 +151,7 @@ public class TalkCommand implements  Command {
                     return dialogueRyan(Ryan);
                 }
             case "2":
-                try(BufferedReader reader = new BufferedReader(new FileReader("res/badEnding.txt"))){
+                try(BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream("/badEnding.txt"))))){
                     System.out.println();
                     String text = "";
                     while((text = reader.readLine()) != null){

@@ -9,7 +9,9 @@ import Models.Room;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Game {
@@ -81,7 +83,7 @@ public class Game {
      */
     public void start() {
         inicialization();
-        try(BufferedReader reader = new BufferedReader(new FileReader("res/prologue.txt"))){
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream("/prologue.txt"))))){
             System.out.println();
             String text = "";
             while((text = reader.readLine()) != null){
