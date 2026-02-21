@@ -28,7 +28,7 @@ public class Game {
     public void inicialization(){
         commands = new HashMap<>();
 
-        world = GameData.loadGameDataFromResources("/gamedata.json");
+        world = GameData.loadGameDataFromResources("/gameData.json");
         this.player = world.player;
         this.player.setCurrentRoom(world.findRoom(player.getHomeLocationId()));
 

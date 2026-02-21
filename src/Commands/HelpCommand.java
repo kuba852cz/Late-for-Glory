@@ -51,7 +51,7 @@ public class HelpCommand implements Command {
                 "- inventar\n" +
                 "- ukoncit";
 
-        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy;
+        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy + "\n" + player.stillNeed();
     }
 
     @Override

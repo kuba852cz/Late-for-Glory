@@ -1,5 +1,6 @@
 package Models.Characters;
 
+import Logic.GameData;
 import Models.Item;
 import Models.Room;
 
@@ -25,6 +26,40 @@ public class Player {
 
     public Player() {
         this.inventory = new ArrayList<>();
+    }
+
+    /**
+     * Identifies the required items that the player has not yet collected.
+     * It compares a predefined list of necessary items (gloves, guard, contract)
+     * against the player's current inventory and equipped status,
+     * filtering out the items already possessed or used.
+     *
+     * @return an {@code ArrayList<Item>} containing the required items still missing
+     */
+    public ArrayList<Item> stillNeed() {
+        GameData gameData = new GameData();
+        ArrayList<Item> neededItems = new ArrayList<>();
+
+        if (!hasGlovesOn) {
+            neededItems.add(gameData.findItem("item_gloves"));
+        }
+        if (!hasGuardOn) {
+            neededItems.add(gameData.findItem("item_guard"));
+        }
+
+        neededItems.add(gameData.findItem("item_contract"));
+
+        neededItems.removeIf(needed -> {
+            for (Item invItem : inventory) {
+                if (needed.getName().equals(invItem.getName())) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        System.out.print("Potřebuješ ještě: ");
+        return neededItems;
     }
 
     /**
