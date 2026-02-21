@@ -29,7 +29,7 @@ The game is controlled by typing text commands into the console (in Czech). Avai
 
 ## ⬇️ Installation
 1. Make sure you have **Java** installed on your computer (Java 17 or newer is recommended).
-2. Download the standalone `Late-for-Glory.jar` file from the repository. (Everything is packed inside, no extra data folders are needed!)
+2. Download the standalone Download the standalone [`Late-for-Glory.jar`](https://github.com/kuba852cz/NazevTvehoRepa/releases/download/v1.0/Late-for-Glory.jar) file from the repository. file from the repository. (Everything is packed inside, no extra data folders are needed!)
 
 ## 🚀 How to Run
 1. Open a terminal (command prompt) in the folder where you downloaded the JAR file.
