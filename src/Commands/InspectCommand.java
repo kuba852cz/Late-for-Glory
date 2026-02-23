@@ -61,14 +61,17 @@ public class InspectCommand implements Command {
             }
         }
 
-
-
         for (Item item : player.getInventory()) {
             if (item.getName().equalsIgnoreCase(targetingName)) {
                 return item.getDescription();
             }
         }
-        return "Nic zajímavého se zde nenachazí.";
+
+        if (targetingName.equalsIgnoreCase(player.getCurrentRoom().getName())) {
+            return player.getCurrentRoom().getDescription();
+        }
+
+        return "Neznámý objekt";
     }
 
     @Override

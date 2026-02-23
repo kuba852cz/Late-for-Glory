@@ -22,10 +22,10 @@ public class HelpCommand implements Command {
      */
     @Override
     public String execute(String targetingName) {
-        String dvojiCara = "====================================================";
-        String tenkaCara = "----------------------------------------------------";
+        String doubbleLine = "====================================================";
+        String line = "----------------------------------------------------";
 
-        String mapa = """
+        String map = """
                                      [  RING  ]
                                          ║
                                          ║
@@ -39,9 +39,9 @@ public class HelpCommand implements Command {
                                          
                                      
                 """;
-        String aktualniPoloha = (" AKTUÁLNĚ SE NACHÁZÍŠ V: " + "[" + player.getCurrentRoom().getName() + "]");
+        String currentLocation = ("AKTUÁLNĚ SE NACHÁZÍŠ V: "+ player.getCurrentRoom().getName() + "\n");
 
-        String prikazy = "Dostupné příkazy:\n\n" +
+        String commands = "Dostupné příkazy:\n\n" +
                 "PŘEDMĚTY: \n" +
 
                 "- seber <předmět>                - Přidání předmětu do inventáře.\n" +
@@ -51,17 +51,17 @@ public class HelpCommand implements Command {
                 "LOKACE: \n" +
 
                 "- jdi <místnost>                 - Vstup do sousední místnosti.\n" +
-                "- prozkoumat <předmět>           - Zobrazí popis místnosti či předmětu.\n" +
+                "- prozkoumat <objekt>            - Zobrazí popis jmenovaného objektu. (Předmět, Mistnost NPC)\n" +
                 "- mluv <NPC>                     - Spustí dialog s daným NPC.\n\n" +
                 "SYSTÉM: \n" +
 
                 "- pomoc                          - Vypíše se tato nápověda.\n"+
                 "- inventar                       - Výpis předmětů ve tvém batohu.\n" +
-                "- ukoncit                        - Předčasné ukončení hry.";
+                "- ukoncit                        - Předčasné ukončení hry.\n";
 
         String playerNeed = "POTŘEBUJEŠ: " + player.stillNeed(gameData);
 
-        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy + "\n" + playerNeed;
+        return "\n" + line + "\n" + doubbleLine + "\n" + map + doubbleLine + "\n" + line + "\n" + currentLocation + "\n" + commands + "\n" + playerNeed + "\n";
     }
 
     @Override

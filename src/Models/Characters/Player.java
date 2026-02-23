@@ -54,15 +54,11 @@ public class Player {
         neededItems.removeIf(needed -> {
             for (Item invItem : inventory) {
                 if (needed.equals(invItem.getName())) {
-                    System.out.print("Potřebuješ ještě: ");
                     return true;
                 }
             }
-            System.out.print("Potřebuješ ještě: ");
             return false;
         });
-
-        System.out.print("Potřebuješ ještě: ");
         return neededItems;
     }
 

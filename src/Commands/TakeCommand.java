@@ -37,7 +37,12 @@ public class TakeCommand implements Command {
                 player.getCurrentRoom().removeItem(item.getId());
                 return "Předmět " + targetingName + " byl sebrán";
             }else{
-                return "nemáš dostatek místa inventáři";
+                if (player.getInventory().size()==3) {
+                    return "nemáš dostatek místa inventáři";
+                }else{
+                    return "Tento předmět se zde nenachází";
+                }
+
             }
         }
         return "Předmět " + targetingName + " není v této místnosti.";
