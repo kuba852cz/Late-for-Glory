@@ -15,6 +15,7 @@ public class InventoryCommand implements Command {
      *
      * @param targetingName not used for this command (ignored)
      * @return A list of items the player currently has in their inventory.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {

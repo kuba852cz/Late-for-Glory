@@ -5,6 +5,7 @@ import Models.Room;
 /**
  * Represents a Non-Player Character (NPC) in the game.
  * This class stores data about characters, their roles, and their interaction states.
+ * @author Jakub Kubíček
  */
 public class NPC {
 

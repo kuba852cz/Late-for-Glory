@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 
 /**
  * Completly generated class with help of AI to count a number of lines in this code
+ * @author AI
  */
 public class LineCounter {
 

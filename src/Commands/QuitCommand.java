@@ -14,6 +14,7 @@ public class QuitCommand implements Command {
      *
      * @param targetingName not used for this command (ignored)
      * @return A message confirming the end of the game.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {

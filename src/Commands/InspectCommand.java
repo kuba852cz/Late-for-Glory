@@ -19,6 +19,7 @@ public class InspectCommand implements Command {
      *
      * @param targetingName the item the player wants to inspect (if blank, the player will inspect the room)
      * @return Description of the item or, if targetingName is blank, a description of the room where the player is located.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {

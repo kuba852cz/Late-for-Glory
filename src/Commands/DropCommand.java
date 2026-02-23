@@ -16,6 +16,7 @@ public class DropCommand implements Command {
      *
      * @param targetingName name of the item the player wants to remove
      * @return Confirmation if the item was removed or not. If so, the item is deleted from the inventory.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {

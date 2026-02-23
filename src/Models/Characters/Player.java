@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Represents the player character (Jon "The Wonder" Oliveira).
  * Manages the inventory and various status flags that track the player's
  * physical condition and equipment for the final fight.
+ * @author Jakub Kubíček
  */
 public class Player {
 
@@ -35,6 +36,7 @@ public class Player {
      * filtering out the items already possessed or used.
      *
      * @return an {@code ArrayList<Item>} containing the required items still missing
+     * @author Jakub Kubíček
      */
     public ArrayList<String> stillNeed(GameData gameData) {
         ArrayList<String> neededItems = new ArrayList<>();
@@ -66,6 +68,7 @@ public class Player {
      * Adds an item to the player's inventory.
      * @param item the item to be added
      * @return true if the item was successfully added
+     * @author Jakub Kubíček
      */
     public boolean pickUpItem(Item item){
         inventory.add(item);
@@ -74,6 +77,7 @@ public class Player {
     /**
      * Removes an item from the player's inventory.
      * @param item the item to be removed
+     * @author Jakub Kubíček
      */
     public void dropItem(Item item){
         inventory.remove(item);

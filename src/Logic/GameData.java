@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Represents the game data loaded from a JSON file.
  * This class serves as a data container for all static game content, such as items, characters, locations, and quests.
- *
+ * @author Teacher
  */
 public class GameData {
 
@@ -27,6 +27,7 @@ public class GameData {
      * Loads game data from a JSON file.
      * @param resourcePath path to the resource file
      * @return a game.GameData object filled with the loaded data
+     * @author Teacher
      */
     public static GameData loadGameDataFromResources(String resourcePath) {
         Gson gson = new Gson();
@@ -53,6 +54,7 @@ public class GameData {
      * Finds a specific location by its identifier.
      * @param id the identifier of the location to be found
      * @return the matching location
+     * @author Teacher
      */
     public Room findRoom(String id) {
         for (Room r : rooms) {
@@ -67,6 +69,7 @@ public class GameData {
      * Finds a specific item by its identifier.
      * @param id the identifier of the location to be found
      * @return the matching location
+     * @author Jakub Kubíček
      */
     public Item findItem(String id) {
         for (Item i : items) {
@@ -81,6 +84,7 @@ public class GameData {
      * Finds a specific npc by its identifier.
      * @param id the identifier of the location to be found
      * @return the matching location
+     * @author Jakub Kubíček
      */
     public NPC findNPC(String id) {
         for (NPC npc : npcs) {

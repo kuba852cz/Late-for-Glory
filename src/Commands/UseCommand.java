@@ -21,6 +21,7 @@ public class UseCommand implements Command {
      *
      * @param targetingName the name of the item or object the player wants to use
      * @return A message confirming the object's activation or an error if requirements are not met.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {

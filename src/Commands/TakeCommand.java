@@ -20,6 +20,7 @@ public class TakeCommand implements Command {
      *
      * @param targetingName the name of the item the player wants to pick up
      * @return A confirmation message that the item was added to the inventory, or an error if it cannot be picked up.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {

@@ -30,6 +30,7 @@ public class TalkCommand implements  Command {
      *
      * @param targetingName the name of the character the player wants to speak to
      * @return The dialogue text of the selected character, or an error message if the character is not found.
+     * @author Jakub Kubíček
      */
     @Override
     public String execute(String targetingName) {
@@ -86,6 +87,7 @@ public class TalkCommand implements  Command {
      *
      * @param Tyson the NPC object representing Mike Tyson
      * @return The outcome of the dialogue, including whether the player received the item.
+     * @author Jakub Kubíček
      */
     public String dialogueTyson(NPC Tyson){
         Scanner volba = new Scanner(System.in);
@@ -119,6 +121,7 @@ public class TalkCommand implements  Command {
      *
      * @param Ryan the NPC object representing the opponent Ryan Garcia
      * @return A "Game Over" message after the fight sequence is completed.
+     * @author Jakub Kubíček
      */
     public String dialogueRyan(NPC Ryan){
         Scanner volba = new Scanner(System.in);
@@ -177,6 +180,7 @@ public class TalkCommand implements  Command {
      *
      * @param Manager the NPC object representing the Manager
      * @return A confirmation message of the signing or a reminder of the missing contract.
+     * @author Jakub Kubíček
      */
     public String dialogueManager(NPC Manager){
         Scanner volba = new Scanner(System.in);
@@ -222,6 +226,7 @@ public class TalkCommand implements  Command {
      *
      * @param Trainer the NPC object representing the Trainer
      * @return Feedback on what items or conditions the player is still missing.
+     * @author Jakub Kubíček
      */
     public String dialogueTrainer(NPC Trainer){
         boolean hasGloves = false;

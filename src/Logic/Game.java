@@ -24,6 +24,7 @@ public class Game {
     /**
      * Initializes the game world by loading data from the JSON resource and
      * registering all available game commands.
+     * @author Jakub Kubíček
      */
     public void inicialization(){
         commands = new HashMap<>();
@@ -47,6 +48,7 @@ public class Game {
      * Provides comprehensive information about the player's current room upon starting the game.
      * It lists the room's description, items, NPCs, and available exits.
      * * @return A formatted string detailing the current room's state, matching the output of GoCommand.
+     * @author Jakub Kubíček
      */
     public String homeInfo(){
         String result ="";

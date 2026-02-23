@@ -4,6 +4,7 @@ package Models;
  * Represents an object in the game world.
  * Items can be collected by the player, stored in the inventory,
  * and used to progress through the story or complete quests.
+ * @author Jakub Kubíček
  */
 public class Item {
 

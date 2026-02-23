@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Represents a location within the game world.
  * This class stores information about the room's description,
  * its connections to other rooms (neighbors), and the IDs of items and NPCs present.
+ * @author Jakub Kubíček
  */
 public class Room {
 

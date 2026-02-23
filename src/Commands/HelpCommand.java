@@ -19,6 +19,7 @@ public class HelpCommand implements Command {
      *
      * @param targetingName not used for this command (ignored)
      * @return The map and a list of commands the player can use
+     * @author Jakub Kubíček + AI
      */
     @Override
     public String execute(String targetingName) {
