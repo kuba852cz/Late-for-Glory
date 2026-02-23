@@ -23,14 +23,25 @@ Trenér na tebe čeká na turnaji. Promluv si s nim.
 
 --------------------------------------------------------------------------------
 
-Základní příkazy pro přežití:
+Dostupné příkazy:
 
-- jdi <místnost> = Vejdeš do vybrané místnosti
-- seber <předmět> = Sebereš vybraný předmět
-- poloz <předmět> = Položíš vybraný předmět
-- pouzij <předmět> = Použiješ vybraný předmět
-- prozkoumat <předmět>/nic = Popíše ti vybraný předmět, nebo defaultně místnost
-- mluv <npc> = Spustí se dialog s postavou
-- pomoc = Ukáže se ti nápověda s mapou
-- inventar = Ukáže ti tvé věci v inventáři
-- ukoncit = Hra se okamžitě ukončí
+PŘEDMĚTY:
+
+- seber <předmět>                - Přidání předmětu do inventáře.
+- poloz <předmět>                - Položení předmětu z inventáře zpět do místosti.
+- pouzij <předmět>               - Použití předmětu, vyvolá specifickou akci.
+- inventar                       - Výpis předmětů ve tvém batohu.
+
+LOKACE:
+
+- jdi <místnost>                 - Vstup do sousední místnosti.
+- prozkoumat <objekt>            - Zobrazí popis jmenovaného objektu. (Předmět, Mistnost NPC)
+- mluv <NPC>                     - Spustí dialog s daným NPC.
+
+SYSTÉM:
+
+- pomoc                          - Vypíše se tato nápověda.
+- inventar                       - Výpis předmětů ve tvém batohu.
+- ukoncit                        - Předčasné ukončení hry.
+
+--------------------------------------------------------------------------------
