@@ -36,22 +36,24 @@ public class Player {
      *
      * @return an {@code ArrayList<Item>} containing the required items still missing
      */
-    public ArrayList<Item> stillNeed() {
-        GameData gameData = new GameData();
-        ArrayList<Item> neededItems = new ArrayList<>();
+    public ArrayList<String> stillNeed(GameData gameData) {
+        ArrayList<String> neededItems = new ArrayList<>();
+        Item gloves = gameData.findItem("item_gloves");
+        Item guard = gameData.findItem("item_guard");
+        Item contract = gameData.findItem("item_contract");
 
         if (!hasGlovesOn) {
-            neededItems.add(gameData.findItem("item_gloves"));
+            neededItems.add(gloves.getName());
         }
         if (!hasGuardOn) {
-            neededItems.add(gameData.findItem("item_guard"));
+            neededItems.add(guard.getName());
         }
 
-        neededItems.add(gameData.findItem("item_contract"));
+       neededItems.add(contract.getName());
 
         neededItems.removeIf(needed -> {
             for (Item invItem : inventory) {
-                if (needed.getName().equals(invItem.getName())) {
+                if (needed.equals(invItem.getName())) {
                     return true;
                 }
             }

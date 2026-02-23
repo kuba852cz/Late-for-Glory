@@ -1,13 +1,17 @@
 package Commands;
 
+import Logic.Game;
+import Logic.GameData;
 import Models.Characters.Player;
 
 public class HelpCommand implements Command {
 
     private Player player;
+    private GameData gameData;
 
-    public HelpCommand(Player player) {
+    public HelpCommand(Player player, GameData gameData) {
         this.player = player;
+        this.gameData = gameData;
     }
 
     /**
@@ -25,17 +29,14 @@ public class HelpCommand implements Command {
                                      [  RING  ]
                                          ║
                                          ║
-               [ KANCELÁŘ ] ═══════ [ TURNAJ ] ═══════ [ SPRCHY ]
-                                         ║
-                                         ║
+               [ KANCELÁŘ ] ═══════ [ TURNAJ ]         [ SPRCHY ]
+                                         ║                  ║
+                                         ║                  ║
                [  OBCHOD  ] ═══════ [ NÁMĚSTÍ] ═══════ [TĚLOCVIČNA]
-                                         ║
-                                         ║
-                                     [  DOMOV  ]
-                                         ║
-                                         ║
-                                     [  ŠATNA  ]
-                                     
+                                         ║                  ║
+                                         ║                  ║
+                                     [  DOMOV  ]       [  ŠATNA  ]
+                                         
                                      
                 """;
         String aktualniPoloha = (" AKTUÁLNĚ SE NACHÁZÍŠ V: " + "[" + player.getCurrentRoom().getName() + "]");
@@ -51,7 +52,7 @@ public class HelpCommand implements Command {
                 "- inventar\n" +
                 "- ukoncit";
 
-        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy + "\n" + player.stillNeed();
+        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy + "\n" + player.stillNeed(gameData);
     }
 
     @Override

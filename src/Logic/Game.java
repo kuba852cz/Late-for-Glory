@@ -34,7 +34,7 @@ public class Game {
 
         commands.put("poloz", new DropCommand(player));
         commands.put("jdi", new GoCommand(player, world));
-        commands.put("pomoc", new HelpCommand(player));
+        commands.put("pomoc", new HelpCommand(player, world));
         commands.put("prozkoumat", new InspectCommand(player, world));
         commands.put("inventar", new InventoryCommand(player));
         commands.put("ukoncit", new QuitCommand(this));
