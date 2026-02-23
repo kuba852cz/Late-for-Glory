@@ -161,6 +161,7 @@ public class TalkCommand implements  Command {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                gameOver = true;
                 break;
             default:
                 System.out.println("Taková volba neexistuje.");
