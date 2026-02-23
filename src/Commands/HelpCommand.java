@@ -41,18 +41,27 @@ public class HelpCommand implements Command {
                 """;
         String aktualniPoloha = (" AKTUÁLNĚ SE NACHÁZÍŠ V: " + "[" + player.getCurrentRoom().getName() + "]");
 
-        String prikazy = "Dostupné příkazy:\n" +
-                "- jdi <místnost>\n" +
-                "- seber <předmět>\n" +
-                "- poloz <předmět>\n" +
-                "- pouzij <předmět>\n"+
-                "- prozkoumat <předmět>\n" +
-                "- mluv <npc>\n" +
-                "- pomoc\n"+
-                "- inventar\n" +
-                "- ukoncit";
+        String prikazy = "Dostupné příkazy:\n\n" +
+                "PŘEDMĚTY: \n" +
 
-        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy + "\n" + player.stillNeed(gameData);
+                "- seber <předmět>                - Přidání předmětu do inventáře.\n" +
+                "- poloz <předmět>                - Položení předmětu z inventáře zpět do místosti.\n" +
+                "- pouzij <předmět>               - Použití předmětu, vyvolá specifickou akci.\n"+
+                "- inventar                       - Výpis předmětů ve tvém batohu.\n\n" +
+                "LOKACE: \n" +
+
+                "- jdi <místnost>                 - Vstup do sousední místnosti.\n" +
+                "- prozkoumat <předmět>           - Zobrazí popis místnosti či předmětu.\n" +
+                "- mluv <NPC>                     - Spustí dialog s daným NPC.\n\n" +
+                "SYSTÉM: \n" +
+
+                "- pomoc                          - Vypíše se tato nápověda.\n"+
+                "- inventar                       - Výpis předmětů ve tvém batohu.\n" +
+                "- ukoncit                        - Předčasné ukončení hry.";
+
+        String playerNeed = "POTŘEBUJEŠ: " + player.stillNeed(gameData);
+
+        return "\n" + aktualniPoloha + "\n" + tenkaCara + "\n" + dvojiCara + "\n" + mapa + dvojiCara + "\n" + tenkaCara + "\n" + prikazy + "\n" + playerNeed;
     }
 
     @Override
