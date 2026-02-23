@@ -30,7 +30,7 @@
       "role": "NPC",
       "homeLocationId": "room_store",
       "notes": "Postava, která umožní hráči zvítězit.",
-      "starterDialogue": "Mike Tyson: \"Zdravim. Jsme Mike Tyson. Můžu ti s něčim pomoct?\""
+      "starterDialogue": "Mike Tyson: \"Zdravim. Jsem Mike Tyson. Můžu ti s něčim pomoct?\""
     },
     {
       "id": "NPC_manager",
